@@ -1,14 +1,15 @@
 package com.arrabal.koth;
 
-import com.arrabal.koth.creativetab.SoKCreativeTabs;
-import com.arrabal.koth.handler.ConfigHandler;
+import com.arrabal.koth.command.SoKCommand;
+import com.arrabal.koth.handler.*;
+import com.arrabal.koth.init.*;
+import com.arrabal.koth.network.Network;
 import com.arrabal.koth.proxy.IProxy;
 import com.arrabal.koth.reference.Reference;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 /**
  * Created by Arrabal on 2/19/2016.
@@ -24,12 +25,26 @@ public class SignOfKoth {
     public static IProxy proxy;
 
     @Mod.EventHandler
+    public void onServerStarting(FMLServerStartingEvent event){
+
+        event.registerServerCommand(new SoKCommand());
+    }
+
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
-        ConfigHandler.init(event.getModConfigurationDirectory() + Reference.CONFIG_FOLDER_NAME);
+        ConfigHandler.init(event.getModConfigurationDirectory() + Reference.CONFIG_FOLDER);
+        Network.init();
+        proxy.registerKeyBindings();
+        ModItems.init();
+        ModBlocks.init();
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+        TileEntities.init();
+        proxy.initRenderingAndTextures();
+        proxy.registerEventHandlers();
 
     }
 

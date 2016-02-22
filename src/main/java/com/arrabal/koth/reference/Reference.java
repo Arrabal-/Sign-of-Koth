@@ -14,6 +14,5 @@ public class Reference {
     public static final String SERVER_PROXY_CLASS = "com.arrabal.koth.proxy.ServerProxy";
     public static final String CLIENT_PROXY_CLASS = "com.arrabal.koth.proxy.ClientProxy";
     public static final String GUI_FACTORY_CLASS = "com.arrabal.koth.client.gui.GuiFactory";
-    public static final String CONFIG_FOLDER_NAME = "/SignOfKoth/";
-    public static final String CONFIG_CATEGORY_MECHANICS = "Mechanics";
+    public static final String CONFIG_FOLDER = "/SignOfKoth/";
 }

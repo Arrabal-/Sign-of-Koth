@@ -1,6 +1,7 @@
 package com.arrabal.koth.client.gui;
 
 import com.arrabal.koth.handler.ConfigHandler;
+import com.arrabal.koth.reference.Names;
 import com.arrabal.koth.reference.Reference;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
@@ -20,7 +21,7 @@ public class SoKGuiConfig extends GuiConfig {
     private static List<IConfigElement> getConfigElements(){
         List<IConfigElement> list = new ArrayList<>();
         list.add(new DummyConfigElement.DummyCategoryElement("Mod Mechanics Settings", Reference.MOD_ID,
-                new ConfigElement(ConfigHandler.config.getCategory(Reference.CONFIG_CATEGORY_MECHANICS)).getChildElements()));
+                new ConfigElement(ConfigHandler.config.getCategory(Names.Configuration.CATEGORY_MECHANICS)).getChildElements()));
 
         return list;
     }

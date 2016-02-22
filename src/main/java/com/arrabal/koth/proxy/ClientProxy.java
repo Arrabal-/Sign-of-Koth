@@ -9,4 +9,19 @@ public class ClientProxy extends CommonProxy {
     public ClientProxy getClientProxy() {
         return this;
     }
+
+    @Override
+    public void registerKeyBindings() {
+        //do stuff
+    }
+
+    @Override
+    public void initRenderingAndTextures() {
+        //do stuff
+    }
+
+    @Override
+    public void registerEventHandlers(){
+        //do stuff
+    }
 }

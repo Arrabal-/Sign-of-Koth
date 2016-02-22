@@ -9,4 +9,14 @@ public class ServerProxy extends CommonProxy {
     public ClientProxy getClientProxy() {
         return null;
     }
+
+    @Override
+    public void registerKeyBindings() {
+        // do nothing
+    }
+
+    @Override
+    public void initRenderingAndTextures() {
+        //do nothing
+    }
 }
