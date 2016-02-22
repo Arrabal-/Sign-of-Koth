@@ -1,0 +1,16 @@
+[
+{
+  "modid": "SoK",
+  "name": "Sign of Koth",
+  "description": "That is not dead which can eternal lie,\nAnd with strange aeons even death may die.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Arrabal"],
+  "credits": "Arrabal",
+  "logoFile": "assets/sok/textures/logo/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
