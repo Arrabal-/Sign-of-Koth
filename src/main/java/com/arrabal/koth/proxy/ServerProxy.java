@@ -1,5 +1,8 @@
 package com.arrabal.koth.proxy;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+
 /**
  * Created by Arrabal on 2/20/2016.
  */
@@ -17,6 +20,21 @@ public class ServerProxy extends CommonProxy {
 
     @Override
     public void initRenderingAndTextures() {
+        //do nothing
+    }
+
+    @Override
+    public void registerFluidBlockRendering(Block block, String name) {
+        //do nothing
+    }
+
+    @Override
+    public void registerItemVariantModel(Item item, String name, int metaData) {
+        //do nothing
+    }
+
+    @Override
+    public void registerNonRenderingProperties(Block block) {
         //do nothing
     }
 }
