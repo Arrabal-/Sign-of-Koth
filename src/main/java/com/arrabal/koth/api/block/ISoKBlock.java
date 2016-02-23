@@ -10,7 +10,7 @@ import net.minecraft.item.ItemBlock;
 public interface ISoKBlock {
 
     public Class<? extends ItemBlock> getItemClass();
-    public IProperty[] getBlockVariationsProperties();
-    public IProperty[] getInformationOnlyProperties();
+    public IProperty[] getPresetProperties();
+    public IProperty[] getNonRenderingProperties();
     public String getBlockstateName(IBlockState blockState);
 }

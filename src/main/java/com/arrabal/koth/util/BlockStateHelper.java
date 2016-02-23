@@ -48,12 +48,28 @@ public class BlockStateHelper {
 
     //return all possible preset block variations
     //only works on blocks implementing ISoKBlock, otherwise returns empty set
-    public static ImmutableSet<IBlockState> getBlockVariationPresets(Block block){
+    public static ImmutableSet<IBlockState> getBlockstatePresets(Block block){
         if (!(block instanceof ISoKBlock)) return ImmutableSet.<IBlockState>of();
         IBlockState defaultState = block.getDefaultState();
         if (defaultState == null) defaultState = block.getBlockState().getBaseState();
-        return getBlockStateSet(defaultState, ((ISoKBlock)block).getBlockVariationsProperties());
+        return getBlockStateSet(defaultState, ((ISoKBlock)block).getPresetProperties());
     }
 
+    public static IProperty getPropertyByName(IBlockState blockState, String propertyName){
+        for (IProperty property : (ImmutableSet<IProperty>) blockState.getProperties().keySet()){
+            if (property.getName().equals(propertyName)) return property;
+        }
+        return null;
+    }
 
+    public static boolean isValidPropertyName(IBlockState blockState, String propertyName){
+        return getPropertyByName(blockState, propertyName) != null;
+    }
+
+    public static Comparable getPropertyValueByName(IBlockState blockState, IProperty property, String valueName){
+        for (Comparable value : (ImmutableSet<Comparable>) property.getAllowedValues()){
+            if (value.toString().equals(valueName)) return value;
+        }
+        return null;
+    }
 }
