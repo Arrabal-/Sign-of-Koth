@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top",
+  "textures": {
+    "bottom": "sok:blocks/door_boarded_lower",
+    "top": "sok:blocks/door_boarded_upper"
+  }
+}

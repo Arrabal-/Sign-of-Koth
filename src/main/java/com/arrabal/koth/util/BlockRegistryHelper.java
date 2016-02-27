@@ -27,7 +27,7 @@ public class BlockRegistryHelper {
     }
 
     public static Block registerDoor(BlockSoKDoor doorBlock, String name, Item doorItem){
-        Block block = registerBlock(doorBlock, name + "_block", null);
+        Block block = registerBlock(doorBlock, name, null);
         doorItem = ItemRegistryHelper.registerItem(new ItemDoor(block), name);
         doorBlock.setDoorItem(doorItem);
         return block;
