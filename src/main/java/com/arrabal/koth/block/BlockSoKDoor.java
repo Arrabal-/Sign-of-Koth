@@ -45,6 +45,11 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
     }
 
     @Override
+    public int getItemRenderColor(IBlockState blockState, int tintIndex) {
+        return this.getRenderColor(blockState);
+    }
+
+    @Override
     public IProperty[] getPresetProperties() {
         return new IProperty[]{};
     }

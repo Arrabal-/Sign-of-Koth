@@ -1,9 +1,7 @@
 package com.arrabal.koth.init;
 
-import com.arrabal.koth.block.BlockSoKDoor;
-import com.arrabal.koth.block.BlockSoKTextureTest2;
-import com.arrabal.koth.block.BlockSokTextureTest;
-import com.arrabal.koth.block.SimpleSoKBlock;
+import com.arrabal.koth.block.*;
+import com.arrabal.koth.creativetab.SoKCreativeTabs;
 import com.arrabal.koth.reference.Reference;
 import com.arrabal.koth.util.BlockRegistryHelper;
 import net.minecraft.block.Block;
@@ -21,6 +19,11 @@ public class ModBlocks {
     public static final SimpleSoKBlock textureTestBlock = new BlockSokTextureTest(Material.wood); //temporary block for testing out new textures
     public static final SimpleSoKBlock textureTest2Block = new BlockSoKTextureTest2(Material.wood); //temporary block for testing out new textures
 
+    // Tree Blocks
+    public static final Block log_0 = new BlockSoKLog();
+    public static final Block leaf_0 = new BlockSoKLeaves();
+    public static final Block sapling = new BlockSoKSapling();
+
     // Door Blocks
     public static final Block boarded_door = new BlockSoKDoor();
 
@@ -28,6 +31,11 @@ public class ModBlocks {
         //Simple Blocks
         BlockRegistryHelper.registerBlock(textureTestBlock, "textureTest");
         BlockRegistryHelper.registerBlock(textureTest2Block, "textureTest2");
+
+        // Tree Parts
+        BlockRegistryHelper.registerBlock(log_0, "log_0", SoKCreativeTabs.tabSoKWorldGen);
+        BlockRegistryHelper.registerBlock(leaf_0, "leaf_0", SoKCreativeTabs.tabSoKWorldGen);
+        BlockRegistryHelper.registerBlock(sapling, "sapling", SoKCreativeTabs.tabSoKWorldGen);
 
         //Door Blocks
         BlockRegistryHelper.registerDoor((BlockSoKDoor) boarded_door, "boarded_door", ModItems.boarded_door);

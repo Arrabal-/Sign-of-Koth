@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "axis=y,variant=cedar":  { "model": "sok:cedar_log" },
+    "axis=z,variant=cedar":   { "model": "sok:cedar_log_side" },
+    "axis=x,variant=cedar":   { "model": "sok:cedar_log_side", "y": 90 },
+    "axis=none,variant=cedar": { "model": "sok:cedar_bark"},
+    "axis=y,variant=cedar_stripped":  { "model": "sok:cedar_stripped_log" },
+    "axis=z,variant=cedar_stripped":   { "model": "sok:cedar_stripped_log_side" },
+    "axis=x,variant=cedar_stripped":   { "model": "sok:cedar_stripped_log_side", "y": 90 },
+    "axis=none,variant=cedar_stripped": { "model": "sok:cedar_stripped_bark"}
+  }
+}

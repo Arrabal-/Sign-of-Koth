@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "variant=cedar": { "model": "sok:cedar_leaves" }
+  }
+}

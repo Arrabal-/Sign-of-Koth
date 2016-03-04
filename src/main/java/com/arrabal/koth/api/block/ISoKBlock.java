@@ -10,6 +10,7 @@ import net.minecraft.item.ItemBlock;
 public interface ISoKBlock {
 
     public Class<? extends ItemBlock> getItemClass();
+    public int getItemRenderColor(IBlockState blockState, int tintIndex);
     public IProperty[] getPresetProperties();
     public IProperty[] getNonRenderingProperties();
     public String getBlockstateName(IBlockState blockState);

@@ -98,6 +98,11 @@ public class VariantSoKBlock extends Block implements ISoKBlock{
     }
 
     @Override
+    public int getItemRenderColor(IBlockState blockState, int tintIndex) {
+        return this.getRenderColor(blockState);
+    }
+
+    @Override
     public IProperty[] getPresetProperties() {
         return new IProperty[0];
     }

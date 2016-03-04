@@ -55,6 +55,17 @@ public class BlockStateHelper {
         return getBlockStateSet(defaultState, ((ISoKBlock)block).getPresetProperties());
     }
 
+    public static IBlockState getPresetBlockstate(IBlockState blockState){
+        IBlockState outState = blockState.getBlock().getDefaultState();
+        if (blockState.getBlock() instanceof ISoKBlock){
+            ISoKBlock sokBlock = (ISoKBlock) blockState.getBlock();
+            for (IProperty property : sokBlock.getPresetProperties()){
+                outState = outState.withProperty(property, blockState.getValue(property));
+            }
+        }
+        return outState;
+    }
+
     public static IProperty getPropertyByName(IBlockState blockState, String propertyName){
         for (IProperty property : (ImmutableSet<IProperty>) blockState.getProperties().keySet()){
             if (property.getName().equals(propertyName)) return property;

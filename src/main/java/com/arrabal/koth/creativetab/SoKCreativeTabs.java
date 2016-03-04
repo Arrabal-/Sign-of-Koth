@@ -29,4 +29,12 @@ public class SoKCreativeTabs {
         }
     };
 
+    public static final CreativeTabs tabSoKWorldGen = new CreativeTabs(CreativeTabs.getNextID(), Reference.LOWERCASE_MOD_ID + "world_gen") {
+        @SideOnly(Side.CLIENT)
+        @Override
+        public Item getTabIconItem() {
+            return Item.getItemFromBlock(Blocks.pumpkin); //TODO:  replae with mod block
+        }
+    };
+
 }
