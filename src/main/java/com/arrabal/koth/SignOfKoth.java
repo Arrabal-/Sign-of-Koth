@@ -35,6 +35,7 @@ public class SignOfKoth {
         ConfigHandler.init(event.getModConfigurationDirectory() + Reference.CONFIG_FOLDER);
         Network.init();
         proxy.registerKeyBindings();
+        ModEvents.init();
         ModItems.init();
         ModBlocks.init();
     }

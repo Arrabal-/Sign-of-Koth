@@ -35,6 +35,11 @@ public class WorldGenCedar extends WorldGenAbstractTree {
         this.useExtraHeight = extraHeight;
     }
 
+    public WorldGenCedar(){
+        super(false);
+        this.useExtraHeight = true;
+    }
+
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
 
