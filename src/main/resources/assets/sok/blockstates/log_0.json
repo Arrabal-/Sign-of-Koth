@@ -4,9 +4,17 @@
     "axis=z,variant=cedar":   { "model": "sok:cedar_log_side" },
     "axis=x,variant=cedar":   { "model": "sok:cedar_log_side", "y": 90 },
     "axis=none,variant=cedar": { "model": "sok:cedar_bark"},
-    "axis=y,variant=cedar_stripped":  { "model": "sok:cedar_stripped_log" },
-    "axis=z,variant=cedar_stripped":   { "model": "sok:cedar_stripped_log_side" },
-    "axis=x,variant=cedar_stripped":   { "model": "sok:cedar_stripped_log_side", "y": 90 },
-    "axis=none,variant=cedar_stripped": { "model": "sok:cedar_stripped_bark"}
+    "axis=y,variant=beech":  { "model": "sok:beech_log" },
+    "axis=z,variant=beech":   { "model": "sok:beech_log_side" },
+    "axis=x,variant=beech":   { "model": "sok:beech_log_side", "y": 90 },
+    "axis=none,variant=beech": { "model": "sok:beech_bark"},
+    "axis=y,variant=hemlock":  { "model": "sok:hemlock_log" },
+    "axis=z,variant=hemlock":   { "model": "sok:hemlock_log_side" },
+    "axis=x,variant=hemlock":   { "model": "sok:hemlock_log_side", "y": 90 },
+    "axis=none,variant=hemlock": { "model": "sok:hemlock_bark"},
+    "axis=y,variant=sugarmaple":  { "model": "sok:sugarmaple_log" },
+    "axis=z,variant=sugarmaple":   { "model": "sok:sugarmaple_log_side" },
+    "axis=x,variant=sugarmaple":   { "model": "sok:sugarmaple_log_side", "y": 90 },
+    "axis=none,variant=sugarmaple": { "model": "sok:sugarmaple_bark"}
   }
 }

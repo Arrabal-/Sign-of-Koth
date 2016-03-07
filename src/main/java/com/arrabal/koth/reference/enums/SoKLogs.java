@@ -7,8 +7,10 @@ import net.minecraft.util.IStringSerializable;
  */
 public enum SoKLogs implements IStringSerializable {
 
-    CEDAR(0, "cedar"),
-    STRIPPED_CEDAR(1, "cedar_stripped");
+    BEECH(0, "beech"),
+    CEDAR(1, "cedar"),
+    HEMLOCK(2, "hemlock"),
+    SUGAR_MAPLE(3, "sugarmaple");
 
     private static final SoKLogs[] META_LOOKUP = new SoKLogs[values().length];
     private final int meta;

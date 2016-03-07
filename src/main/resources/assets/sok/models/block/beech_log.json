@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "sok:blocks/log_beech_top",
+    "side": "sok:blocks/log_beech"
+  }
+}
