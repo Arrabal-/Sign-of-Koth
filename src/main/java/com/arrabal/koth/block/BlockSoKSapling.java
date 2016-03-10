@@ -104,6 +104,11 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
     }
 
     @Override
+    public IBlockState getStateFromMeta(int meta){
+        return this.getDefaultState().withProperty(STAGE, meta >> 3).withProperty(VARIANT, SoKTrees.byMetaData(meta & 7));
+    }
+
+    @Override
     public int getMetaFromState(IBlockState state){
         SoKTrees treeType = state.getValue(VARIANT);
         int meta = treeType.getMetaData();
@@ -127,7 +132,10 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
 
     protected WorldGenerator getSmallTreeGenerator(SoKTrees tree, boolean useExtraHeight){
         switch(tree){
+            case BEECH:
             case CEDAR: return new WorldGenCedar(true, useExtraHeight);
+            case HEMLOCK:
+            case SUGAR_MAPLE:
             default: return new WorldGenForest(true, false);
         }
     }

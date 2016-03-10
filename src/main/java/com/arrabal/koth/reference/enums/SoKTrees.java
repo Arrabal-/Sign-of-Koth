@@ -6,7 +6,10 @@ import net.minecraft.util.IStringSerializable;
  * Created by Arrabal on 3/2/2016.
  */
 public enum SoKTrees implements IStringSerializable {
-    CEDAR(0, "cedar");
+    BEECH(0, "beech"),
+    CEDAR(1, "cedar"),
+    HEMLOCK(2, "hemlock"),
+    SUGAR_MAPLE(3, "sugarmaple");
 
     private static final SoKTrees[] META_LOOKUP = new SoKTrees[values().length];
     private final int meta;
@@ -31,7 +34,7 @@ public enum SoKTrees implements IStringSerializable {
 
     @Override
     public String getName(){
-        return this.name().toLowerCase();
+        return this.name.toLowerCase();
     }
 
     @Override

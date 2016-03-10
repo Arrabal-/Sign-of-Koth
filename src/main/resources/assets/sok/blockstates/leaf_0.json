@@ -1,5 +1,8 @@
 {
   "variants": {
-    "variant=cedar": { "model": "sok:cedar_leaves" }
+    "variant=beech": { "model": "sok:beech_leaves" },
+    "variant=cedar": { "model": "sok:cedar_leaves" },
+    "variant=hemlock": { "model": "sok:hemlock_leaves" },
+    "variant=sugarmaple": { "model": "sok:sugarmaple_leaves" }
   }
 }

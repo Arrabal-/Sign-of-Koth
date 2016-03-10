@@ -48,7 +48,7 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     }
 
     public SoKTrees getTreeType(int meta){
-        return SoKTrees.byMetaData((meta & 3) % 4);
+        return SoKTrees.byMetaData(meta & 3);
     }
 
     @Override
@@ -68,8 +68,14 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
 
     public static ColoringType getColoringType(SoKTrees tree){
         switch(tree){
+            case BEECH:
+                return ColoringType.PLAIN;
             case CEDAR:
                 return ColoringType.TINTED;
+            case HEMLOCK:
+                return ColoringType.PLAIN;
+            case SUGAR_MAPLE:
+                return ColoringType.PLAIN;
             default:
                 return ColoringType.PLAIN;
         }
@@ -131,7 +137,7 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
 
     @Override
     protected ItemStack createStackedBlock(IBlockState state){
-       return new ItemStack(Item.getItemFromBlock(this), 1, state.getValue(VARIANT).getMetaData());
+       return new ItemStack(Item.getItemFromBlock(this), 1, this.getMetaFromState(state));
     }
 
     @Override
@@ -139,10 +145,12 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
         return state.getValue(VARIANT).getMetaData();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
         IBlockState blockState = world.getBlockState(pos);
-        return new java.util.ArrayList(java.util.Arrays.asList(new ItemStack(this, 1, ((SoKTrees)blockState.getValue(VARIANT)).getMetaData())));
+        return new java.util.ArrayList(java.util.Arrays.asList(new ItemStack(this, 1,
+                this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, world.getBlockState(pos).getValue(VARIANT))))));
     }
 
     @Override

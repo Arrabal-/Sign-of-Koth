@@ -1,5 +1,8 @@
 {
   "variants": {
-    "variant=cedar": { "model": "sok:cedar_sapling" }
+    "variant=beech": { "model": "sok:beech_sapling" },
+    "variant=cedar": { "model": "sok:cedar_sapling" },
+    "variant=hemlock": { "model": "sok:hemlock_sapling" },
+    "variant=sugarmaple": { "model": "sok:sugarmaple_sapling" }
   }
 }
