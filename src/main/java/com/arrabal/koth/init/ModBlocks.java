@@ -7,6 +7,7 @@ import com.arrabal.koth.util.BlockRegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -39,5 +40,13 @@ public class ModBlocks {
 
         //Door Blocks
         BlockRegistryHelper.registerDoor((BlockSoKDoor) boarded_door, "boarded_door", ModItems.boarded_door);
+
+        //Set Fire Info
+        ModBlocks.initFireValues();
+    }
+
+    private static void initFireValues(){
+        Blocks.fire.setFireInfo(log_0,5, 5);
+        Blocks.fire.setFireInfo(leaf_0, 30, 60);
     }
 }

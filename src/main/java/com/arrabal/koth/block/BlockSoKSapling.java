@@ -1,11 +1,15 @@
 package com.arrabal.koth.block;
 
 import com.arrabal.koth.api.block.ISoKBlock;
+import com.arrabal.koth.init.ModBlocks;
 import com.arrabal.koth.item.ItemSoKBlock;
+import com.arrabal.koth.reference.enums.SoKLogs;
 import com.arrabal.koth.reference.enums.SoKTrees;
 import com.arrabal.koth.world.gen.feature.WorldGenCedar;
+import com.arrabal.koth.world.gen.feature.WorldGenSoKBigTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -19,6 +23,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenForest;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
@@ -30,8 +35,6 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
 
     public static final PropertyEnum<SoKTrees> VARIANT = PropertyEnum.<SoKTrees>create("variant", SoKTrees.class);
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
-
-    private Item saplingItem;
 
     public BlockSoKSapling(){
         super();
@@ -130,12 +133,25 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
         return (double)worldIn.rand.nextFloat() < 0.45D;
     }
 
-    protected WorldGenerator getSmallTreeGenerator(SoKTrees tree, boolean useExtraHeight){
+    protected WorldGenerator getSmallTreeGenerator(SoKTrees tree, boolean useBigTree){
         switch(tree){
             case BEECH:
-            case CEDAR: return new WorldGenCedar(true, useExtraHeight);
+                if (useBigTree){
+                    return new WorldGenSoKBigTree(true, ModBlocks.leaf_0.getDefaultState().withProperty(BlockSoKLeaves.VARIANT, SoKTrees.BEECH).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)),
+                            ModBlocks.log_0.getDefaultState().withProperty(BlockSoKLog.VARIANT, SoKLogs.BEECH));
+                }
+                return new WorldGenTrees(true, 4, ModBlocks.log_0.getDefaultState().withProperty(BlockSoKLog.VARIANT, SoKLogs.BEECH),
+                        ModBlocks.leaf_0.getDefaultState().withProperty(BlockSoKLeaves.VARIANT, SoKTrees.BEECH).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)), false);
+            case CEDAR:
+                return new WorldGenCedar(true, useBigTree);
             case HEMLOCK:
             case SUGAR_MAPLE:
+                if (useBigTree){
+                    return new WorldGenSoKBigTree(true, ModBlocks.leaf_0.getDefaultState().withProperty(BlockSoKLeaves.VARIANT, SoKTrees.SUGAR_MAPLE).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)),
+                            ModBlocks.log_0.getDefaultState().withProperty(BlockSoKLog.VARIANT, SoKLogs.SUGAR_MAPLE));
+                }
+                return new WorldGenTrees(true, 4, ModBlocks.log_0.getDefaultState().withProperty(BlockSoKLog.VARIANT, SoKLogs.SUGAR_MAPLE),
+                        ModBlocks.leaf_0.getDefaultState().withProperty(BlockSoKLeaves.VARIANT, SoKTrees.SUGAR_MAPLE).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)), false);
             default: return new WorldGenForest(true, false);
         }
     }

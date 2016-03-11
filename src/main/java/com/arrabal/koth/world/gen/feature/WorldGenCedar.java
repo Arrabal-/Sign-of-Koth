@@ -25,9 +25,7 @@ public class WorldGenCedar extends WorldGenAbstractTree {
     public static final IBlockState leafType = ModBlocks.leaf_0.getDefaultState().withProperty(BlockSoKLeaves.VARIANT, SoKTrees.CEDAR).withProperty(BlockSoKLeaves.CHECK_DECAY, Boolean.valueOf(false));
 
     private boolean useExtraHeight;
-    private int minHeight = 9;
-    private int maxHeight = 13;
-    private int foliageBands = 9;
+
 
 
     public WorldGenCedar(boolean notify, boolean extraHeight){
@@ -43,8 +41,11 @@ public class WorldGenCedar extends WorldGenAbstractTree {
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
 
-        int height = this.minHeight + rand.nextInt(this.maxHeight - this.minHeight - 1) + (this.useExtraHeight ? rand.nextInt(2) + 1 : 0);
-        height = (height > this.maxHeight ? this.maxHeight : height);
+        int minHeight = 9;
+        int maxHeight = 13;
+        int foliageBands = 9;
+        int height = minHeight + rand.nextInt(maxHeight - minHeight - 1) + (this.useExtraHeight ? rand.nextInt(2) + 1 : 0);
+        height = (height > maxHeight ? maxHeight : height);
         int denseFoliageStart = height - 7;
         boolean hasSpace = true;
         boolean sapling = worldIn.getBlockState(position).getBlock() == ModBlocks.sapling;
@@ -83,7 +84,7 @@ public class WorldGenCedar extends WorldGenAbstractTree {
 
                 if(isSoil && position.getY() < 256 - height - 1){
                     baseBlock.onPlantGrow(worldIn, down, position);
-                    int startFoliage = height - this.foliageBands;
+                    int startFoliage = height - foliageBands;
                     int foliageTopper = (height < 12) ? 2 : height - 9;
                     this.generateLeaves(worldIn, height, position, startFoliage);
                     this.generateTrunk(worldIn, height, position, foliageTopper);
