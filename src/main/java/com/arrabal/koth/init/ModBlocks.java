@@ -20,6 +20,9 @@ public class ModBlocks {
     public static final SimpleSoKBlock textureTestBlock = new BlockSokTextureTest(Material.wood); //temporary block for testing out new textures
     public static final SimpleSoKBlock textureTest2Block = new BlockSoKTextureTest2(Material.wood); //temporary block for testing out new textures
 
+    //Variant Blocks
+    public static final Block planks_0 = new BlockSoKPlanks();
+
     // Tree Blocks
     public static final Block log_0 = new BlockSoKLog();
     public static final Block leaf_0 = new BlockSoKLeaves();
@@ -32,6 +35,9 @@ public class ModBlocks {
         //Simple Blocks
         BlockRegistryHelper.registerBlock(textureTestBlock, "textureTest");
         BlockRegistryHelper.registerBlock(textureTest2Block, "textureTest2");
+
+        //Variant Blocks
+        BlockRegistryHelper.registerBlock(planks_0, "planks_0");
 
         // Tree Parts
         BlockRegistryHelper.registerBlock(log_0, "log_0", SoKCreativeTabs.tabSoKWorldGen);
@@ -46,7 +52,8 @@ public class ModBlocks {
     }
 
     private static void initFireValues(){
-        Blocks.fire.setFireInfo(log_0,5, 5);
+        Blocks.fire.setFireInfo(log_0, 5, 5);
         Blocks.fire.setFireInfo(leaf_0, 30, 60);
+        Blocks.fire.setFireInfo(planks_0, 5, 20);
     }
 }

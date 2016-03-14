@@ -2,9 +2,11 @@ package com.arrabal.koth.block;
 
 import com.arrabal.koth.api.block.ISoKBlock;
 import com.arrabal.koth.creativetab.SoKCreativeTabs;
+import com.arrabal.koth.item.ItemSoKBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,7 +26,7 @@ import java.util.Random;
 /**
  * Created by Arrabal on 2/24/2016.
  */
-public class VariantSoKBlock extends Block implements ISoKBlock{
+public abstract class VariantSoKBlock extends Block implements ISoKBlock{
 
     public VariantSoKBlock() {
         this(Material.rock);
@@ -93,27 +95,24 @@ public class VariantSoKBlock extends Block implements ISoKBlock{
     }
 
     @Override
+    protected abstract BlockState createBlockState();
+
+    @Override
+    public abstract IBlockState getStateFromMeta(int meta);
+
+    @Override
+    public abstract int getMetaFromState(IBlockState state);
+
+    @Override
+    public abstract int damageDropped(IBlockState state);
+
+    @Override
     public Class<? extends ItemBlock> getItemClass() {
-        return null;
+        return ItemSoKBlock.class;
     }
 
     @Override
     public int getItemRenderColor(IBlockState blockState, int tintIndex) {
         return this.getRenderColor(blockState);
-    }
-
-    @Override
-    public IProperty[] getPresetProperties() {
-        return new IProperty[0];
-    }
-
-    @Override
-    public IProperty[] getNonRenderingProperties() {
-        return new IProperty[0];
-    }
-
-    @Override
-    public String getBlockstateName(IBlockState blockState) {
-        return null;
     }
 }
