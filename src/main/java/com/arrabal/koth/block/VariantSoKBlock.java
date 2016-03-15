@@ -1,14 +1,10 @@
 package com.arrabal.koth.block;
 
 import com.arrabal.koth.api.block.ISoKBlock;
-import com.arrabal.koth.creativetab.SoKCreativeTabs;
 import com.arrabal.koth.item.ItemSoKBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
@@ -93,18 +89,6 @@ public abstract class VariantSoKBlock extends Block implements ISoKBlock{
             }
         }
     }
-
-    @Override
-    protected abstract BlockState createBlockState();
-
-    @Override
-    public abstract IBlockState getStateFromMeta(int meta);
-
-    @Override
-    public abstract int getMetaFromState(IBlockState state);
-
-    @Override
-    public abstract int damageDropped(IBlockState state);
 
     @Override
     public Class<? extends ItemBlock> getItemClass() {

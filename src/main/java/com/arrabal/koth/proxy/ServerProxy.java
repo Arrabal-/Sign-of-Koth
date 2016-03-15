@@ -1,7 +1,9 @@
 package com.arrabal.koth.proxy;
 
+import com.arrabal.koth.handler.WorldEventHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Created by Arrabal on 2/20/2016.

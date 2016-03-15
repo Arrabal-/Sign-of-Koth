@@ -34,7 +34,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerEventHandlers(){
-        //do stuff
+        super.registerEventHandlers();
     }
 
     @Override
