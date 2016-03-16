@@ -84,5 +84,6 @@ public class ModBlocks {
         Blocks.fire.setFireInfo(stairs_cedar, 5, 20);
         Blocks.fire.setFireInfo(stairs_hemlock, 5, 20);
         Blocks.fire.setFireInfo(stairs_maple, 5, 20);
+        Blocks.fire.setFireInfo(cedar_siding, 5, 20);
     }
 }

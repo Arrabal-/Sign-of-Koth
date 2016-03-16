@@ -14,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.List;
+
 /**
  * Created by Arrabal on 3/14/2016.
  */
@@ -27,10 +29,14 @@ public class ModCrafting {
 
     private static void addCraftingRecipes(){
 
+        //===========================================Shapeless Recipes================================================//
         // logs into corresponding planks
         for (SoKLogs wood : SoKLogs.values()){
             GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.planks_0, 4, wood.getMetaData()), CraftingHelper.getItemStackFromProperty(ModBlocks.log_0, 1, BlockSoKLog.VARIANT, wood));
         }
+
+
+        //============================================Shaped Recipes==================================================//
 
     }
 
@@ -45,6 +51,10 @@ public class ModCrafting {
         OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_cedar));
         OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_hemlock));
         OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_maple));
+        List<ItemStack> stackList = CraftingHelper.getItemStackForAllBlockstates(ModBlocks.cedar_siding, 1);
+        for (int i = 0; i < stackList.size(); i++){
+            OreDictionary.registerOre("plankWood", stackList.get(i));
+        }
 
         // support for tree types
         for (SoKTrees tree : SoKTrees.values()){
@@ -64,6 +74,7 @@ public class ModCrafting {
         FurnaceFuelHandler sokFuelHandler = new FurnaceFuelHandler();
         GameRegistry.registerFuelHandler(sokFuelHandler);
         sokFuelHandler.addFuel(ModBlocks.sapling, 100);
+        sokFuelHandler.addFuel(ModBlocks.wooden_slab, 150);
 
     }
 }
