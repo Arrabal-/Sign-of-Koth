@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "sok:blocks/planks_beech",
+    "top": "sok:blocks/planks_beech",
+    "side": "sok:blocks/planks_beech"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "sok:blocks/planks_cedar",
+    "top": "sok:blocks/planks_cedar",
+    "side": "sok:blocks/planks_cedar"
+  }
+}

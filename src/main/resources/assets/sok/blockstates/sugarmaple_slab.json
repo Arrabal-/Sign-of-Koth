@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=bottom": { "model": "sok:half_slab_sugarmaple" },
+    "half=top": { "model": "sok:upper_slab_sugarmaple" }
+  }
+}

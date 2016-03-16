@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "variant=beech": { "model": "sok:beech_planks" },
+    "variant=cedar":    { "model": "sok:cedar_planks" },
+    "variant=hemlock":    { "model": "sok:hemlock_planks" },
+    "variant=sugarmaple":    { "model": "sok:sugarmaple_planks" }
+  }
+}

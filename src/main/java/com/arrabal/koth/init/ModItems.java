@@ -14,6 +14,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class ModItems {
 
     public static Item boarded_door;
+    public static Item wooden_slab;
 
     public static void init(){
         registerItems();

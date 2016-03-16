@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=bottom,variant=beech": { "model": "sok:half_slab_beech" },
+    "half=top,variant=beech": { "model": "sok:upper_slab_beech" },
+    "half=bottom,variant=cedar": { "model": "sok:half_slab_cedar" },
+    "half=top,variant=cedar": { "model": "sok:upper_slab_cedar" },
+    "half=bottom,variant=hemlock": { "model": "sok:half_slab_hemlock" },
+    "half=top,variant=hemlock": { "model": "sok:upper_slab_hemlock" },
+    "half=bottom,variant=sugarmaple": { "model": "sok:half_slab_sugarmaple" },
+    "half=top,variant=sugarmaple": { "model": "sok:upper_slab_sugarmaple" }
+  }
+}

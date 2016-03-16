@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=bottom": { "model": "sok:half_slab_hemlock" },
+    "half=top": { "model": "sok:upper_slab_hemlock" }
+  }
+} 

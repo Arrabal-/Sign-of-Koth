@@ -1,2 +1,7 @@
 itemGroup.sokblocks=Sign of Koth - Blocks
 itemGroup.sokitems=Sign of Koth - Items
+
+tile.beech_slab.name=Beech Planks Slab
+tile.cedar_slab.name=Cedar Planks Slab
+tile.hemlock_slab.name=Hemlock Planks Slab
+tile.sugarmaple_slab.name=Sugar Maple Planks Slab

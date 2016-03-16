@@ -45,7 +45,7 @@ public class BlockRegistryHelper {
     public static Block registerBlock(Block block, String blockName, CreativeTabs creativeTab){
 
         block.setUnlocalizedName(blockName);
-        block.setCreativeTab(creativeTab);
+        if (creativeTab != null) block.setCreativeTab(creativeTab);
 
         if (block instanceof ISoKBlock){
             ISoKBlock sokBlock = (ISoKBlock)block;

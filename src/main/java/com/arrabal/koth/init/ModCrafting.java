@@ -41,6 +41,10 @@ public class ModCrafting {
             OreDictionary.registerOre("logWood", CraftingHelper.getItemStackFromProperty(ModBlocks.log_0, 1, BlockSoKLog.VARIANT, wood));
             OreDictionary.registerOre("plankWood", new ItemStack(ModBlocks.planks_0, 1, wood.getMetaData()));
         }
+        OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_beech));
+        OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_cedar));
+        OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_hemlock));
+        OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_maple));
 
         // support for tree types
         for (SoKTrees tree : SoKTrees.values()){
