@@ -29,6 +29,7 @@ public class ModBlocks {
     public static final Block planks_0 = new BlockSoKPlanks();
     public static  Block wooden_slab;
     public static  Block double_wooden_slab;
+    public static final Block cedar_siding = new BlockSoKSiding();
 
     // Stair Blocks
     public static final Block stairs_beech = new BlockSoKStairs(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.BEECH));
@@ -46,11 +47,12 @@ public class ModBlocks {
 
     public static void init(){
         // Simple Blocks
-        BlockRegistryHelper.registerBlock(textureTestBlock, "textureTest");
-        BlockRegistryHelper.registerBlock(textureTest2Block, "textureTest2");
+        //BlockRegistryHelper.registerBlock(textureTestBlock, "textureTest");
+        //BlockRegistryHelper.registerBlock(textureTest2Block, "textureTest2");
 
         // Variant Blocks
         BlockRegistryHelper.registerBlock(planks_0, "planks_0");
+        BlockRegistryHelper.registerBlock(cedar_siding, "cedar_siding");
         wooden_slab = BlockRegistryHelper.registerBlock(new BlockSoKHalfWoodSlab(), "wood_slab_0", null);
         double_wooden_slab = BlockRegistryHelper.registerBlock(new BlockSoKDoubleWoodSlab(), "double_wood_slab_0", null);
         ModItems.wooden_slab = ItemRegistryHelper.registerItem(new ItemSlab(wooden_slab, (BlockSlab) wooden_slab, (BlockSlab) double_wooden_slab), "wood_slab_0", null);

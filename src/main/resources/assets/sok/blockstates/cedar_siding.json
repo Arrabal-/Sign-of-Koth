@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "is_shake=false,weathered=false": { "model": "sok:cedar_siding" },
+    "is_shake=true,weathered=false": { "model": "sok:cedar_shake" },
+    "is_shake=false,weathered=true": { "model": "sok:weathered_siding" },
+    "is_shake=true,weathered=true": { "model": "sok:weathered_shake" }
+  }
+}
