@@ -6,19 +6,23 @@ import net.minecraft.item.Item;
 /**
  * Created by Arrabal on 2/24/2016.
  */
-public class ItemSoK extends Item {
+public abstract class ItemSoK extends Item {
 
     public ItemSoK(){
         super();
-        setMaxStackSize(1);
-        setCreativeTab(SoKCreativeTabs.tabSoKItems);
-        setNoRepair();
+        this.setMaxStackSize(1);
+        this.setNoRepair();
     }
 
     public ItemSoK(String itemName){
         this();
-        setRegistryName(itemName);
-        setUnlocalizedName(itemName);
+        this.setRegistryName(itemName);
+    }
+
+    public ItemSoK(int maxStackSize){
+        super();
+        this.setMaxStackSize(maxStackSize);
+        this.setNoRepair();
     }
 
     public void setCanRepair(boolean canRepair){

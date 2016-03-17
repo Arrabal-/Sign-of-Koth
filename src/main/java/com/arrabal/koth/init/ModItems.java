@@ -1,6 +1,8 @@
 package com.arrabal.koth.init;
 
+import com.arrabal.koth.item.ItemWoodenBoard;
 import com.arrabal.koth.reference.Reference;
+import com.arrabal.koth.util.ItemRegistryHelper;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -15,6 +17,7 @@ public class ModItems {
 
     public static Item boarded_door;
     public static Item wooden_slab;
+    public static final Item wooden_board = new ItemWoodenBoard();
 
     public static void init(){
         registerItems();
@@ -22,6 +25,9 @@ public class ModItems {
     }
 
     public static void registerItems(){
+
+        // crafting components
+        ItemRegistryHelper.registerItem(wooden_board, "wooden_board");
 
     }
 
