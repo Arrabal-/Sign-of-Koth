@@ -59,6 +59,11 @@ public class ModCrafting {
                  "PP ",
                  "PPP", 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.SUGAR_MAPLE)});
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.wooden_board, 6), new Object[] {"SSS", 'S', "slabWood"}));
+        GameRegistry.addShapedRecipe(new ItemStack(((BlockSoKDoor)ModBlocks.boarded_door).getDoorItem(), 1), new Object[] {"BB ", "BB ", "BB ", 'B', new ItemStack(ModItems.wooden_board, 1)});
+        GameRegistry.addShapedRecipe(new ItemStack(((BlockSoKDoor)ModBlocks.secured_door).getDoorItem(), 1), new Object[]
+                {"B  ",
+                 " D ",
+                 "B  ", 'B', new ItemStack(ModItems.wooden_board, 1), 'D', new ItemStack(((BlockSoKDoor)ModBlocks.boarded_door).getDoorItem(), 1)});
     }
 
     private static void addOreDictionaryRegistration(){
@@ -97,6 +102,7 @@ public class ModCrafting {
         GameRegistry.registerFuelHandler(sokFuelHandler);
         sokFuelHandler.addFuel(ModBlocks.sapling, 100);
         sokFuelHandler.addFuel(ModBlocks.wooden_slab, 150);
+        sokFuelHandler.addFuel(ModItems.wooden_board, 75);
 
     }
 }

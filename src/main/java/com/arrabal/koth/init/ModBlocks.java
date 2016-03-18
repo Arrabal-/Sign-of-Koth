@@ -43,7 +43,8 @@ public class ModBlocks {
     public static final Block sapling = new BlockSoKSapling();
 
     // Door Blocks
-    public static final Block boarded_door = new BlockSoKDoor();
+    public static final Block boarded_door = new BlockSoKDoor(false);
+    public static final Block secured_door = new BlockSoKDoor(true);
 
     public static void init(){
         // Simple Blocks
@@ -71,6 +72,7 @@ public class ModBlocks {
 
         // Door Blocks
         BlockRegistryHelper.registerDoor((BlockSoKDoor) boarded_door, "boarded_door", ModItems.boarded_door);
+        BlockRegistryHelper.registerDoor((BlockSoKDoor) secured_door, "secured_door", ModItems.secured_door);
 
         // Set Fire Info
         ModBlocks.initFireValues();

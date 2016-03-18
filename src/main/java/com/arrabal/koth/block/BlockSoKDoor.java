@@ -23,6 +23,7 @@ import java.util.Random;
 public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
 
     private Item doorItem;
+    private int securedLevel;
 
     public static final PropertyBool SECURED = PropertyBool.create("secured");
 
@@ -30,15 +31,51 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
         super(material);
     }
 
-    public BlockSoKDoor(){
+    public BlockSoKDoor(boolean secured){
         super(Material.wood);
         this.setHardness(3.0f); // change based on material
         this.setHarvestLevel("axe",0); //change based on material and state
         this.setStepSound(soundTypeWood); //change based on material
         this.disableStats();
-        this.setDefaultState(this.getDefaultState().withProperty(SECURED, Boolean.valueOf(false)));
+        if (secured) {
+            this.securedLevel = 2;
+        }
+        else {
+            this.securedLevel = 0;
+        }
+        this.setDefaultState(this.getDefaultState().withProperty(SECURED, Boolean.valueOf(secured)));
     }
 
+    private void increaseSecuredLevel(int change){
+        int secLev = this.getSecuredLevel();
+        if (secLev < 2) secLev += change;
+        this.setSecuredLevel(secLev);
+    }
+
+    private void decreaseSecuredLevel(int change){
+        int secLev = this.getSecuredLevel();
+        if (secLev > 0) secLev -= change;
+        this.setSecuredLevel(secLev);
+    }
+
+    public void changeSecuredLevel(int change){
+        if (change > 0) increaseSecuredLevel(change);
+        else if (change < 0) decreaseSecuredLevel(change);
+    }
+
+    private void setSecuredLevel(int level){
+        if (level < 0) level = 0;
+        if (level > 2) level = 2;
+        this.securedLevel = level;
+    }
+
+    public int getSecuredLevel(){
+        return this.securedLevel;
+    }
+
+    public boolean isSecured(){
+        return this.securedLevel > 1;
+    }
 
 
     @Override
@@ -92,4 +129,5 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
 
     //TODO:  Doors that are secured have higher harvest level and do not open.
     //TODO:  Doors that are secured break into boards instead of dropping the door item
+    // 6 boards = unsecured door; unsecured door + 2 boards = secured door
 }
