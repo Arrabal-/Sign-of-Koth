@@ -10,6 +10,8 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -23,6 +25,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -82,37 +85,28 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     }
 
     @Override
+    public IBlockColor getBlockColor(){
+        return new IBlockColor() {
+            @Override
+            public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex) {
+                boolean inWorld = world != null && pos != null;
+                switch (getColoringType((SoKTrees) state.getValue(BlockSoKLeaves.VARIANT))){
+                    case TINTED:
+                        return inWorld ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
+                    case PLAIN: default: return 0xFFFFFF;
+                }
+            }
+        };
+    }
+
+    @Override
     protected BlockStateContainer createBlockState(){
         return new BlockStateContainer(this, new IProperty[] {CHECK_DECAY, DECAYABLE, VARIANT});
     }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public int getBlockColor(){
-        return 0xFFFFFF;
-    }
 
-    @SideOnly(Side.CLIENT)
     @Override
-    public int getRenderColor(IBlockState state){
-        switch(getColoringType((SoKTrees)state.getValue(VARIANT))){
-            case TINTED:
-                return ColorizerFoliage.getFoliageColorPine();
-            case PLAIN: default:
-                return 0xFFFFFF;
-        }
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public int colorMultiplier(IBlockAccess worldIn, BlockPos blockPos, int renderPass){
-        switch(getColoringType((SoKTrees)worldIn.getBlockState(blockPos).getValue(VARIANT))){
-            case TINTED:
-                return ColorizerFoliage.getFoliageColorPine();
-            case PLAIN:default:
-                return 0xFFFFFF;
-        }
-    }
+    public IItemColor getItemColor() { return ModBlocks.BLOCK_ITEM_COLOR; }
 
     @Override
     public IBlockState onBlockPlaced(World worldIn, BlockPos blockPos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
@@ -156,11 +150,6 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     @Override
     public Class<? extends ItemBlock> getItemClass() {
         return ItemSoKBlock.class;
-    }
-
-    @Override
-    public int getItemRenderColor(IBlockState blockState, int tintIndex) {
-        return this.getRenderColor(blockState);
     }
 
     @Override

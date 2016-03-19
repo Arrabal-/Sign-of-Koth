@@ -2,14 +2,18 @@ package com.arrabal.koth.block;
 
 import com.arrabal.koth.api.block.ISoKBlock;
 import net.minecraft.block.BlockDoor;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -84,11 +88,6 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
     }
 
     @Override
-    public int getItemRenderColor(IBlockState blockState, int tintIndex) {
-        return this.getRenderColor(blockState);
-    }
-
-    @Override
     public IProperty[] getPresetProperties() {
         return new IProperty[]{};
     }
@@ -101,6 +100,16 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
     @Override
     public String getBlockstateName(IBlockState blockState) {
         return "";
+    }
+
+    @Override
+    public IBlockColor getBlockColor() {
+        return null;
+    }
+
+    @Override
+    public IItemColor getItemColor() {
+        return null;
     }
 
     public void setDoorItem(Item doorItem) {
@@ -118,8 +127,8 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public Item getItem(World world, BlockPos blockPos){
-        return this.getDoorItem();
+    public ItemStack getItem(World world, BlockPos blockPos, IBlockState state){
+        return new ItemStack(this.getDoorItem());
     }
 
     @Override

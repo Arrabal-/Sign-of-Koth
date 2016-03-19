@@ -13,11 +13,14 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.translation.I18n;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBirchTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
@@ -32,19 +35,23 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
 
     public static final PropertyEnum<SoKTrees> VARIANT = PropertyEnum.<SoKTrees>create("variant", SoKTrees.class);
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
+    protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
 
     public BlockSoKSapling(){
         super();
         this.setStepSound(SoundType.GROUND);
         this.setHardness(0.0f);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, SoKTrees.CEDAR).withProperty(STAGE, Integer.valueOf(0)));
-        float f = 0.4f;
-        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
     }
 
     @Override
     protected BlockStateContainer createBlockState(){
         return new BlockStateContainer(this, new IProperty[]{STAGE, VARIANT});
+    }
+
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return SAPLING_AABB;
     }
 
     @Override
@@ -160,11 +167,6 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
     }
 
     @Override
-    public int getItemRenderColor(IBlockState blockState, int tintIndex) {
-        return this.getRenderColor(blockState);
-    }
-
-    @Override
     public IProperty[] getPresetProperties() {
         return new IProperty[]{VARIANT};
     }
@@ -181,5 +183,15 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
             default:
                 return tree.getName() + "_sapling";
         }
+    }
+
+    @Override
+    public IBlockColor getBlockColor() {
+        return null;
+    }
+
+    @Override
+    public IItemColor getItemColor() {
+        return null;
     }
 }

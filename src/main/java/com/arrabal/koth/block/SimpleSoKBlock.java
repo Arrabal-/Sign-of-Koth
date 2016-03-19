@@ -50,9 +50,8 @@ public class SimpleSoKBlock extends Block {
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos blockPos, IBlockState blockState){
-        this.setBlockBoundsBasedOnState(world, blockPos);
-        return super.getCollisionBoundingBox(world, blockPos, blockState);
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos){
+        return super.getCollisionBoundingBox(state, world, pos);
     }
 
     public static EnumFacing getFacingFromEntitiy(World world, BlockPos clickedBlock, EntityLivingBase clicker){

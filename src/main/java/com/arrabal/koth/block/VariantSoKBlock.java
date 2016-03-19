@@ -5,6 +5,8 @@ import com.arrabal.koth.item.ItemSoKBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
@@ -52,9 +54,8 @@ public abstract class VariantSoKBlock extends Block implements ISoKBlock{
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos blockPos, IBlockState blockState){
-        this.setBlockBoundsBasedOnState(world, blockPos);
-        return super.getCollisionBoundingBox(world, blockPos, blockState);
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos){
+        return super.getCollisionBoundingBox(state, world, pos);
     }
 
     public static EnumFacing getFacingFromEntitiy(World world, BlockPos clickedBlock, EntityLivingBase clicker){
@@ -96,7 +97,8 @@ public abstract class VariantSoKBlock extends Block implements ISoKBlock{
     }
 
     @Override
-    public int getItemRenderColor(IBlockState blockState, int tintIndex) {
-        return this.getRenderColor(blockState);
-    }
+    public IBlockColor getBlockColor() {return null;}
+
+    @Override
+    public IItemColor getItemColor() {return null;}
 }

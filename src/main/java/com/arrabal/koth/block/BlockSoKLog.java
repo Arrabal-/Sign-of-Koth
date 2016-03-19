@@ -9,9 +9,12 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -51,10 +54,8 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
     }
 
     @Override
-    public float getBlockHardness(World worldIn, BlockPos pos){
+    public float getBlockHardness(IBlockState state, World worldIn, BlockPos pos){
         float hardness = this.blockHardness;
-        if (worldIn != null && pos != null) {
-            IBlockState state = worldIn.getBlockState(pos);
             switch (state.getValue(VARIANT)){
                 case BEECH:
                     hardness += 0.5f;
@@ -65,20 +66,19 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
                 default:
                     break;
             }
-        }
         return hardness;
     }
 
 
-    private boolean canHeldItemHarvest(EntityPlayer harvester, Block blockToHarvest){
-        ItemStack itemStack = harvester.getHeldItem();
+    private boolean canHeldItemHarvest(EntityPlayer harvester, IBlockState blockToHarvest){
+        ItemStack itemStack = harvester.getHeldItem(EnumHand.MAIN_HAND);
         return itemStack != null ? itemStack.canHarvestBlock(blockToHarvest) : false;
     }
 
     private boolean canHarvestBlock(Block block, EntityPlayer player, IBlockAccess world, BlockPos pos){
         IBlockState state = world.getBlockState(pos);
         if (state.getValue(VARIANT) != SoKLogs.BEECH &&
-                state.getValue(VARIANT) != SoKLogs.SUGAR_MAPLE && block.getMaterial().isToolNotRequired())
+                state.getValue(VARIANT) != SoKLogs.SUGAR_MAPLE && block.getMaterial(state).isToolNotRequired())
         {
             return true;
         }
@@ -88,23 +88,22 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
         String tool = block.getHarvestTool(state);
         if (stack == null || tool == null)
         {
-            return net.minecraftforge.event.ForgeEventFactory.doPlayerHarvestCheck(player, block, this.canHeldItemHarvest(player, block));
+            return net.minecraftforge.event.ForgeEventFactory.doPlayerHarvestCheck(player, state, this.canHeldItemHarvest(player, state));
 
         }
 
         int toolLevel = stack.getItem().getHarvestLevel(stack, tool);
         if (toolLevel < 0)
         {
-            return net.minecraftforge.event.ForgeEventFactory.doPlayerHarvestCheck(player, block, this.canHeldItemHarvest(player, block));
+            return net.minecraftforge.event.ForgeEventFactory.doPlayerHarvestCheck(player, state, this.canHeldItemHarvest(player, state));
         }
 
         return toolLevel >= block.getHarvestLevel(state);
     }
 
     @Override
-    public float getPlayerRelativeBlockHardness(EntityPlayer playerIn, World worldIn, BlockPos pos){
-        IBlockState state = worldIn.getBlockState(pos);
-        float hardness = state.getBlock().getBlockHardness(worldIn, pos);
+    public float getPlayerRelativeBlockHardness(IBlockState state, EntityPlayer playerIn, World worldIn, BlockPos pos){
+        float hardness = state.getBlock().getBlockHardness(state, worldIn, pos);
         if (hardness < 0.0F)
         {
             return 0.0F;
@@ -134,11 +133,6 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
     }
 
     @Override
-    public int getItemRenderColor(IBlockState blockState, int tintIndex) {
-        return this.getRenderColor(blockState);
-    }
-
-    @Override
     public IProperty[] getPresetProperties() {
         return new IProperty[] {VARIANT};
     }
@@ -156,6 +150,16 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
             default:
                 return wood.getName() + "_log";
         }
+    }
+
+    @Override
+    public IBlockColor getBlockColor() {
+        return null;
+    }
+
+    @Override
+    public IItemColor getItemColor() {
+        return null;
     }
 
     private void setBlockstateHarvestLevels(){

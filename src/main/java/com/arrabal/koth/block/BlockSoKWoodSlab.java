@@ -10,6 +10,8 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -51,9 +53,10 @@ public abstract class BlockSoKWoodSlab extends BlockSlab implements ISoKBlock {
     public Class<? extends ItemBlock> getItemClass() {return null;}
 
     @Override
-    public int getItemRenderColor(IBlockState state, int tinIndex){
-        return this.getRenderColor(state);
-    }
+    public IBlockColor getBlockColor() {return null;}
+
+    @Override
+    public IItemColor getItemColor() {return null;}
 
     @Override
     public String getUnlocalizedName(int meta){
@@ -61,12 +64,12 @@ public abstract class BlockSoKWoodSlab extends BlockSlab implements ISoKBlock {
     }
 
     @Override
-    public IProperty getVariantProperty(){
+    public IProperty<?> getVariantProperty(){
         return VARIANT;
     }
 
     @Override
-    public Object getVariant(ItemStack stack){
+    public Comparable<?> getTypeForItem(ItemStack stack){
         return SoKLogs.byMetaData(stack.getMetadata() & 7);
     }
 
