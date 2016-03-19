@@ -7,12 +7,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -30,8 +30,8 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
     }
 
     @Override
-    protected BlockState createBlockState(){
-        return new BlockState(this, new IProperty[] {LOG_AXIS, VARIANT});
+    protected BlockStateContainer createBlockState(){
+        return new BlockStateContainer(this, new IProperty[] {LOG_AXIS, VARIANT});
     }
 
     @Override

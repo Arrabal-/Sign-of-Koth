@@ -5,12 +5,12 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -35,7 +35,7 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
         super(Material.wood);
         this.setHardness(3.0f); // change based on material
         this.setHarvestLevel("axe",0); //change based on material and state
-        this.setStepSound(soundTypeWood); //change based on material
+        this.setStepSound(SoundType.WOOD); //change based on material
         this.disableStats();
         if (secured) {
             this.securedLevel = 2;
@@ -112,8 +112,8 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
     }
 
     @Override
-    protected BlockState createBlockState(){
-        return new BlockState(this, new IProperty[] {HALF, FACING, OPEN, HINGE, POWERED, SECURED});
+    protected BlockStateContainer createBlockState(){
+        return new BlockStateContainer(this, new IProperty[] {HALF, FACING, OPEN, HINGE, POWERED, SECURED});
     }
 
     @SideOnly(Side.CLIENT)

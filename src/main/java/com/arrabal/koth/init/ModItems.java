@@ -3,7 +3,6 @@ package com.arrabal.koth.init;
 import com.arrabal.koth.item.ItemWoodenBoard;
 import com.arrabal.koth.reference.Reference;
 import com.arrabal.koth.util.ItemRegistryHelper;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;

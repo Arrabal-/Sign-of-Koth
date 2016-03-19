@@ -8,7 +8,7 @@ import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,10 +16,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -82,8 +82,8 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     }
 
     @Override
-    protected BlockState createBlockState(){
-        return new BlockState(this, new IProperty[] {CHECK_DECAY, DECAYABLE, VARIANT});
+    protected BlockStateContainer createBlockState(){
+        return new BlockStateContainer(this, new IProperty[] {CHECK_DECAY, DECAYABLE, VARIANT});
     }
 
     @SideOnly(Side.CLIENT)
@@ -120,7 +120,7 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     }
 
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos blockPos, EntityPlayer player){
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos blockPos, EntityPlayer player){
         return new ItemStack(this, 1, this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, world.getBlockState(blockPos).getValue(VARIANT))));
     }
 
@@ -184,13 +184,13 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public EnumWorldBlockLayer getBlockLayer(){
+    public BlockRenderLayer getBlockLayer(){
         return Blocks.leaves.getBlockLayer();
     }
 
     @Override
-    public boolean isOpaqueCube(){
-        return Blocks.leaves.isOpaqueCube();
+    public boolean isOpaqueCube(IBlockState state){
+        return Blocks.leaves.isOpaqueCube(state);
     }
 
     @Override

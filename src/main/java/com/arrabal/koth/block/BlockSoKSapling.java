@@ -7,22 +7,19 @@ import com.arrabal.koth.reference.enums.SoKLogs;
 import com.arrabal.koth.reference.enums.SoKTrees;
 import com.arrabal.koth.world.gen.feature.WorldGenCedar;
 import com.arrabal.koth.world.gen.feature.WorldGenSoKBigTree;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.IGrowable;
+import net.minecraft.block.*;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenForest;
+import net.minecraft.world.gen.feature.WorldGenBirchTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -38,7 +35,7 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
 
     public BlockSoKSapling(){
         super();
-        this.setStepSound(Block.soundTypeGrass);
+        this.setStepSound(SoundType.GROUND);
         this.setHardness(0.0f);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, SoKTrees.CEDAR).withProperty(STAGE, Integer.valueOf(0)));
         float f = 0.4f;
@@ -46,13 +43,13 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
     }
 
     @Override
-    protected BlockState createBlockState(){
-        return new BlockState(this, new IProperty[]{STAGE, VARIANT});
+    protected BlockStateContainer createBlockState(){
+        return new BlockStateContainer(this, new IProperty[]{STAGE, VARIANT});
     }
 
     @Override
     public String getLocalizedName(){
-        return StatCollector.translateToLocal(this.getUnlocalizedName() + "." + SoKTrees.CEDAR.getName() + ".name");
+        return I18n.translateToLocal(this.getUnlocalizedName() + "." + SoKTrees.CEDAR.getName() + ".name");
     }
 
     @Override
@@ -153,7 +150,7 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
                 }
                 return new WorldGenTrees(true, 4, ModBlocks.log_0.getDefaultState().withProperty(BlockSoKLog.VARIANT, SoKLogs.SUGAR_MAPLE),
                         ModBlocks.leaf_0.getDefaultState().withProperty(BlockSoKLeaves.VARIANT, SoKTrees.SUGAR_MAPLE).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)), false);
-            default: return new WorldGenForest(true, false);
+            default: return new WorldGenBirchTree(true, false);
         }
     }
 

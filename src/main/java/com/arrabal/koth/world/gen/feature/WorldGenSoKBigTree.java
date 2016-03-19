@@ -1,12 +1,11 @@
 package com.arrabal.koth.world.gen.feature;
 
 import com.google.common.collect.Lists;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 
@@ -122,7 +121,7 @@ public class WorldGenSoKBigTree extends WorldGenBigTree {
                     BlockPos blockpos = blockPos.add(j, 0, k);
                     net.minecraft.block.state.IBlockState state = this.world.getBlockState(blockpos);
 
-                    if (state.getBlock().isAir(this.world, blockpos) || state.getBlock().isLeaves(this.world, blockpos))
+                    if (state.getBlock().isAir(state, this.world, blockpos) || state.getBlock().isLeaves(state, this.world, blockpos))
                     {
                         this.setBlockAndNotifyAdequately(this.world, blockpos, blockState);
                     }
@@ -324,7 +323,7 @@ public class WorldGenSoKBigTree extends WorldGenBigTree {
     {
         BlockPos down = this.basePos.down();
         net.minecraft.block.state.IBlockState state = this.world.getBlockState(down);
-        boolean isSoil = state.getBlock().canSustainPlant(this.world, down, net.minecraft.util.EnumFacing.UP, ((net.minecraft.block.BlockSapling) Blocks.sapling));
+        boolean isSoil = state.getBlock().canSustainPlant(state, this.world, down, net.minecraft.util.EnumFacing.UP, ((net.minecraft.block.BlockSapling) Blocks.sapling));
 
         if (!isSoil)
         {

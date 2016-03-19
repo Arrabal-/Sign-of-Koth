@@ -8,11 +8,9 @@ import com.arrabal.koth.reference.enums.SoKLogs;
 import com.arrabal.koth.reference.enums.SoKTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.Random;
 
@@ -80,10 +78,10 @@ public class WorldGenCedar extends WorldGenAbstractTree {
             else{
                 BlockPos down = position.down();
                 Block baseBlock = worldIn.getBlockState(down).getBlock();
-                boolean isSoil = baseBlock.canSustainPlant(worldIn, down, net.minecraft.util.EnumFacing.UP, ((BlockSoKSapling) ModBlocks.sapling));
+                boolean isSoil = baseBlock.canSustainPlant(worldIn.getBlockState(down), worldIn, down, net.minecraft.util.EnumFacing.UP, ((BlockSoKSapling) ModBlocks.sapling));
 
                 if(isSoil && position.getY() < 256 - height - 1){
-                    baseBlock.onPlantGrow(worldIn, down, position);
+                    baseBlock.onPlantGrow(worldIn.getBlockState(down), worldIn, down, position);
                     int startFoliage = height - foliageBands;
                     int foliageTopper = (height < 12) ? 2 : height - 9;
                     this.generateLeaves(worldIn, height, position, startFoliage);
@@ -121,13 +119,13 @@ public class WorldGenCedar extends WorldGenAbstractTree {
                     Block buildBlock;
                     if (!cross && (Math.abs(x - treeStart.getX()) + Math.abs(z - treeStart.getZ()) <= radius + 1)) {
                         buildBlock = worldIn.getBlockState(buildPos).getBlock();
-                        if (buildBlock.isAir(worldIn, buildPos) || buildBlock.isLeaves(worldIn, buildPos)) {
+                        if (buildBlock.isAir(worldIn.getBlockState(buildPos), worldIn, buildPos) || buildBlock.isLeaves(worldIn.getBlockState(buildPos), worldIn, buildPos)) {
                             this.setBlockAndNotifyAdequately(worldIn, buildPos, leafType);
                         }
 
                     } else if (Math.abs(x - treeStart.getX()) + Math.abs(z - treeStart.getZ()) <= radius) {
                         buildBlock = worldIn.getBlockState(buildPos).getBlock();
-                        if (buildBlock.isAir(worldIn, buildPos) || buildBlock.isLeaves(worldIn, buildPos)) {
+                        if (buildBlock.isAir(worldIn.getBlockState(buildPos), worldIn, buildPos) || buildBlock.isLeaves(worldIn.getBlockState(buildPos), worldIn, buildPos)) {
                             this.setBlockAndNotifyAdequately(worldIn, buildPos, leafType);
                         }
                     }
@@ -137,7 +135,7 @@ public class WorldGenCedar extends WorldGenAbstractTree {
         //set the final column of leaves in the center
         BlockPos buildPos = new BlockPos(treeStart.getX(), treeTopPosition - 1, treeStart.getZ());
         Block buildBlock = worldIn.getBlockState(buildPos).getBlock();
-        if (buildBlock.isAir(worldIn, buildPos) || buildBlock.isLeaves(worldIn, buildPos)) {
+        if (buildBlock.isAir(worldIn.getBlockState(buildPos), worldIn, buildPos) || buildBlock.isLeaves(worldIn.getBlockState(buildPos), worldIn, buildPos)) {
             this.setBlockAndNotifyAdequately(worldIn, buildPos, leafType);
         }
     }
@@ -148,7 +146,7 @@ public class WorldGenCedar extends WorldGenAbstractTree {
             int y = treeStart.getY() + h;
             buildPos.set(treeStart.getX(), y, treeStart.getZ());
             Block buildBlock = worldIn.getBlockState(buildPos).getBlock();
-            if (buildBlock.isAir(worldIn,buildPos) || buildBlock.isLeaves(worldIn, buildPos)){
+            if (buildBlock.isAir(worldIn.getBlockState(buildPos), worldIn,buildPos) || buildBlock.isLeaves(worldIn.getBlockState(buildPos), worldIn, buildPos)){
                 this.setBlockAndNotifyAdequately(worldIn, buildPos, logType);
             }
         }

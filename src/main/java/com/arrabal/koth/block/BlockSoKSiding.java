@@ -1,9 +1,10 @@
 package com.arrabal.koth.block;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 
 /**
@@ -19,13 +20,13 @@ public class BlockSoKSiding extends VariantSoKBlock {
         this.setDefaultState(this.getDefaultState().withProperty(SHAKE, Boolean.FALSE).withProperty(WEATHERED, Boolean.FALSE));
         this.setHardness(2.0f);
         this.setResistance(5.0f);
-        this.setStepSound(soundTypeWood);
+        this.setStepSound(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
     }
 
     @Override
-    protected BlockState createBlockState(){
-        return new BlockState(this, new IProperty[] {SHAKE, WEATHERED});
+    protected BlockStateContainer createBlockState(){
+        return new BlockStateContainer(this, new IProperty[] {SHAKE, WEATHERED});
     }
 
     @Override
