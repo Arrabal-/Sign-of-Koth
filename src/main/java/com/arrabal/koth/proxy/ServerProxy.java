@@ -1,9 +1,8 @@
 package com.arrabal.koth.proxy;
 
-import com.arrabal.koth.handler.WorldEventHandler;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Created by Arrabal on 2/20/2016.
@@ -21,7 +20,12 @@ public class ServerProxy extends CommonProxy {
     }
 
     @Override
-    public void initRenderingAndTextures() {
+    public void registerRendering() {
+        //do nothing
+    }
+
+    @Override
+    public void registerColoring() {
         //do nothing
     }
 
@@ -36,7 +40,7 @@ public class ServerProxy extends CommonProxy {
     }
 
     @Override
-    public void registerNonRenderingProperties(Block block) {
+    public void registerBlockSided(Block block) {
         //do nothing
     }
 }

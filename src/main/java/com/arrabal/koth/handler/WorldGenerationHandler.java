@@ -5,6 +5,7 @@ import com.arrabal.koth.world.WorldGenerationContainer;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderEnd;
 import net.minecraft.world.WorldProviderHell;
+import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import net.minecraft.world.storage.ISaveHandler;
@@ -52,7 +53,7 @@ public class WorldGenerationHandler implements IWorldGenerator {
     }
 
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if (!world.isRemote){
             int[] tuple = {chunkX, chunkZ};
             if (this.currentlyGenerating.contains(tuple)){
@@ -80,12 +81,12 @@ public class WorldGenerationHandler implements IWorldGenerator {
     public static WorldGenerationContainer getGenContainerFromWorld(World world){
         WorldGenerationContainer handler = null;
         if (!world.isRemote){
-            if (!generatorMap.containsKey(world.provider.getDimensionId())){
+            if (!generatorMap.containsKey(world.provider.getDimension())){
                 handler = new WorldGenerationContainer(world);
-                generatorMap.put(world.provider.getDimensionId(), handler);
+                generatorMap.put(world.provider.getDimension(), handler);
             }
             else{
-                handler = generatorMap.get(world.provider.getDimensionId());
+                handler = generatorMap.get(world.provider.getDimension());
             }
         }
         return handler;

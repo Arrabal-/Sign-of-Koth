@@ -3,6 +3,7 @@ package com.arrabal.koth.block;
 import com.arrabal.koth.api.block.ISoKBlock;
 import com.arrabal.koth.init.ModBlocks;
 import com.arrabal.koth.item.ItemSoKBlock;
+import com.arrabal.koth.reference.colors.BlockColors;
 import com.arrabal.koth.reference.enums.SoKTrees;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -106,7 +107,7 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
 
 
     @Override
-    public IItemColor getItemColor() { return ModBlocks.BLOCK_ITEM_COLOR; }
+    public IItemColor getItemColor() { return BlockColors.BLOCK_ITEM_COLOR; }
 
     @Override
     public IBlockState onBlockPlaced(World worldIn, BlockPos blockPos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
@@ -180,6 +181,12 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     @Override
     public boolean isOpaqueCube(IBlockState state){
         return Blocks.leaves.isOpaqueCube(state);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side){
+        return Blocks.leaves.shouldSideBeRendered(state, world, pos, side);
     }
 
     @Override

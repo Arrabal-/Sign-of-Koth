@@ -50,7 +50,7 @@ public class BlockRegistryHelper {
         if (block instanceof ISoKBlock){
             ISoKBlock sokBlock = (ISoKBlock)block;
             GameRegistry.registerBlock(block, sokBlock.getItemClass(), blockName);
-            SignOfKoth.proxy.registerNonRenderingProperties(block);
+            SignOfKoth.proxy.registerBlockSided(block);
             IBlockState defaultState = block.getDefaultState();
             if (defaultState == null){
                 defaultState = block.getBlockState().getBaseState();

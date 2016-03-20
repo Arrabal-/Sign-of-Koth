@@ -39,7 +39,7 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
 
     public BlockSoKSapling(){
         super();
-        this.setStepSound(SoundType.GROUND);
+        this.setStepSound(SoundType.PLANT);
         this.setHardness(0.0f);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, SoKTrees.CEDAR).withProperty(STAGE, Integer.valueOf(0)));
     }

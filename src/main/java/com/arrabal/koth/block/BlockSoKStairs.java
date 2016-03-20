@@ -10,5 +10,6 @@ public class BlockSoKStairs extends BlockStairs {
 
     public BlockSoKStairs(IBlockState parentState){
         super(parentState);
+        this.useNeighborBrightness = true;
     }
 }

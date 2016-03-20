@@ -1,6 +1,7 @@
 package com.arrabal.koth.proxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 
 /**
@@ -12,7 +13,9 @@ public interface IProxy {
 
     public abstract void registerKeyBindings();
 
-    public abstract void initRenderingAndTextures();
+    public abstract void registerRendering();
+
+    public abstract void registerColoring();
 
     public abstract void registerEventHandlers();
 
@@ -20,7 +23,7 @@ public interface IProxy {
 
     public abstract void registerItemVariantModel(Item item,String name, int metaData);
 
-    public abstract void registerNonRenderingProperties(Block block);
+    public abstract void registerBlockSided(Block block);
 
 
 }

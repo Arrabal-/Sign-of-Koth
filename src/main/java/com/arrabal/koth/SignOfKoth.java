@@ -47,9 +47,10 @@ public class SignOfKoth {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
+        proxy.registerColoring();
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         TileEntities.init();
-        proxy.initRenderingAndTextures();
+        proxy.registerRendering();
         proxy.registerEventHandlers();
 
     }

@@ -8,9 +8,7 @@ import com.arrabal.koth.reference.enums.SoKLogs;
 import com.arrabal.koth.util.BlockRegistryHelper;
 import com.arrabal.koth.util.ItemRegistryHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSlab;
-import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -31,31 +29,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks {
-
-    // Block Coloring
-    public static final IBlockColor FOLIAGE_COLOR = new IBlockColor() {
-        @Override
-        public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex) {
-            return world != null && pos != null ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
-        }
-    };
-
-    public static final IBlockColor GRASS_COLOR = new IBlockColor() {
-        @Override
-        public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex) {
-            return world != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(world, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D);
-        }
-    };
-
-    public static final IItemColor BLOCK_ITEM_COLOR = new IItemColor() {
-        @Override
-        public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-            IBlockState state = ((ItemBlock)stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
-            IBlockColor blockColor = ((ISoKBlock)state.getBlock()).getBlockColor();
-            return blockColor == null ? 0xFFFFFF : blockColor.colorMultiplier(state, null, null, tintIndex);
-
-        }
-    };
 
     // Simple Blocks
     public static final SimpleSoKBlock textureTestBlock = new BlockSokTextureTest(Material.wood); //temporary block for testing out new textures

@@ -46,12 +46,6 @@ public class ItemSoKBlock extends ItemBlock {
         }
     }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public int getColorFromItemStack(ItemStack stack, int tintIndex){
-        return this.sokBlock.getItemRenderColor(this.block.getStateFromMeta(stack.getMetadata()), tintIndex);
-    }
-
     @Override
     public int getMetadata(int meta){
         return meta;
