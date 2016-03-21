@@ -1,5 +1,5 @@
 # The Sign of Koth
-**The Sign of Koth** is a **Minecraft mod** for Minecraft version 1.8.9 that brings a world of incomprehensible dark powers, the journey to discover them, and the choice to challenge or embrace the darkness to Minecraft.
+**The Sign of Koth** is a **Minecraft mod** for Minecraft version 1.9 that brings a world of incomprehensible dark powers, the journey to discover them, and the choice to challenge or embrace the darkness to Minecraft.
 
 
 ## License
