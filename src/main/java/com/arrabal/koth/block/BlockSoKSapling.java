@@ -6,6 +6,7 @@ import com.arrabal.koth.item.ItemSoKBlock;
 import com.arrabal.koth.reference.enums.SoKLogs;
 import com.arrabal.koth.reference.enums.SoKTrees;
 import com.arrabal.koth.world.gen.feature.WorldGenCedar;
+import com.arrabal.koth.world.gen.feature.WorldGenHemlockFromSapling;
 import com.arrabal.koth.world.gen.feature.WorldGenSoKBigTree;
 import net.minecraft.block.*;
 import net.minecraft.block.properties.IProperty;
@@ -150,6 +151,7 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
             case CEDAR:
                 return new WorldGenCedar(true, useBigTree);
             case HEMLOCK:
+                return new WorldGenHemlockFromSapling();
             case SUGAR_MAPLE:
                 if (useBigTree){
                     return new WorldGenSoKBigTree(true, ModBlocks.leaf_0.getDefaultState().withProperty(BlockSoKLeaves.VARIANT, SoKTrees.SUGAR_MAPLE).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)),
