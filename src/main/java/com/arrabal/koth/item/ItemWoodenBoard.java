@@ -8,6 +8,5 @@ public class ItemWoodenBoard extends ItemSoK {
     public ItemWoodenBoard(){
         super(64);
         this.setMaxDamage(0);
-        this.setFull3D();
     }
 }
