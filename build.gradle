@@ -14,7 +14,7 @@ apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "${minecraft_version}-${mod_version}.${mod_build_number}"
+version = "${minecraft_version}-${major_mod_version}.${major_api_version}.${minor_version}.${patch}"
 group = mod_group
 archivesBaseName = mod_artifact_basename
 

@@ -1,6 +1,5 @@
 package com.arrabal.koth.init;
 
-import com.arrabal.koth.api.block.ISoKBlock;
 import com.arrabal.koth.block.*;
 import com.arrabal.koth.creativetab.SoKCreativeTabs;
 import com.arrabal.koth.reference.Reference;
@@ -10,18 +9,8 @@ import com.arrabal.koth.util.ItemRegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.ColorizerGrass;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**

@@ -1,6 +1,9 @@
 itemGroup.sokblocks=Sign of Koth - Blocks
 itemGroup.sokitems=Sign of Koth - Items
 
+commands.signofkoth.usage=/signofkoth <spawnloot> [args]
+commands.signofkoth.spawnloot.usage=/signofkoth spawnloot [posX] [posY] [posZ]
+
 tile.beech_slab.name=Beech Planks Slab
 tile.cedar_slab.name=Cedar Planks Slab
 tile.hemlock_slab.name=Hemlock Planks Slab

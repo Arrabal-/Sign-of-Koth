@@ -6,6 +6,7 @@ import com.arrabal.koth.reference.Names;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.server.MinecraftServer;
 
 import java.util.ArrayList;
@@ -30,6 +31,11 @@ public class SoKCommand extends CommandBase {
     }
 
     @Override
+    public int getRequiredPermissionLevel(){
+        return 2;
+    }
+
+    @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length >= 1){
             for (CommandBase command : modCommands){
@@ -38,11 +44,14 @@ public class SoKCommand extends CommandBase {
                 }
             }
         }
+        else{
+            throw new WrongUsageException(this.getCommandUsage(sender));
+        }
     }
 
     static{
         //add commands to modCommand here
-        //modCommands.add(new Command###());
+        modCommands.add(new CommandSpawnLootChest());
 
         for (CommandBase commandBase : modCommands){
             commands.add(commandBase.getCommandName());
