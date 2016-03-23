@@ -2,6 +2,7 @@ package com.arrabal.koth.proxy;
 
 import com.arrabal.koth.api.block.ISoKBlock;
 import com.arrabal.koth.reference.Reference;
+import com.arrabal.koth.util.LogHelper;
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -83,5 +84,10 @@ public class ClientProxy extends CommonProxy {
                 blocksToColor.add(block);
             }
         }
+    }
+
+    @Override
+    public void registerVillage() {
+        super.registerVillage();
     }
 }

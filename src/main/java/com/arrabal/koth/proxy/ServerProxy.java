@@ -1,8 +1,11 @@
 package com.arrabal.koth.proxy;
 
+import com.arrabal.koth.world.gen.structure.VillageAbandonedHouse;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
+import net.minecraft.world.gen.structure.MapGenStructureIO;
+import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 /**
  * Created by Arrabal on 2/20/2016.

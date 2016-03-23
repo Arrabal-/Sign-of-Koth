@@ -52,6 +52,7 @@ public class SignOfKoth {
         TileEntities.init();
         proxy.registerRendering();
         proxy.registerEventHandlers();
+        proxy.registerVillage();
 
     }
 
