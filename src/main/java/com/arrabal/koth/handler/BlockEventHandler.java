@@ -1,6 +1,7 @@
 package com.arrabal.koth.handler;
 
 import com.arrabal.koth.init.ModItems;
+import com.arrabal.koth.reference.enums.Minerals;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
@@ -24,9 +25,22 @@ public class BlockEventHandler {
                     if (i < 0) i = 0;
                     numDropped = numDropped * (i + 1);
                 }
-                ItemStack stack = new ItemStack(ModItems.minerals, numDropped, 0);
+                ItemStack stack = new ItemStack(ModItems.minerals, numDropped, Minerals.ELECTRUM_FRAGMENT.getMetaData());
                 event.getDrops().add(stack);
             }
+        }
+        else if (event.getState().getBlock() == Blocks.iron_ore && !event.isSilkTouching() && event.getPos().getY() >= 40) {
+                Random random = new Random(event.getWorld().getTotalWorldTime());
+                if (random.nextInt(100) < 10) {
+                    int numDropped = random.nextInt(3) + 1;
+                    if (event.getFortuneLevel() > 0) {
+                        int i = random.nextInt(event.getFortuneLevel() + 2) - 1;
+                        if (i < 0) i = 0;
+                        numDropped = numDropped * (i + 1);
+                    }
+                    ItemStack stack = new ItemStack(ModItems.minerals, numDropped, Minerals.GREEN_VITRIOL.getMetaData());
+                    event.getDrops().add(stack);
+                }
         }
     }
 }
