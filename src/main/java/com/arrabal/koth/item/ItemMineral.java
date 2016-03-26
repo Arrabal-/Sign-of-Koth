@@ -22,7 +22,7 @@ public class ItemMineral extends ItemSoK {
 
     @Override
     public String getUnlocalizedName(ItemStack stack){
-        return Minerals.byMetaData(stack.getMetadata()).getName();
+        return "item." + Minerals.byMetaData(stack.getMetadata()).getName();
     }
 
     @Override

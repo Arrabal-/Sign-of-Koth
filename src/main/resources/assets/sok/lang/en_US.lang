@@ -1,10 +1,43 @@
 itemGroup.sokblocks=Sign of Koth - Blocks
 itemGroup.sokitems=Sign of Koth - Items
+itemGroup.sokworld_gen=Sign of Koth - World Gen
 
 commands.signofkoth.usage=/signofkoth <spawnloot> [args]
 commands.signofkoth.spawnloot.usage=/signofkoth spawnloot [posX] [posY] [posZ]
 
-tile.beech_slab.name=Beech Planks Slab
-tile.cedar_slab.name=Cedar Planks Slab
-tile.hemlock_slab.name=Hemlock Planks Slab
-tile.sugarmaple_slab.name=Sugar Maple Planks Slab
+tile.planks_0.beech_planks.name=Beech Wood Planks
+tile.planks_0.cedar_planks.name=Cedar Wood Planks
+tile.planks_0.hemlock_planks.name=Hemlock Wood Planks
+tile.planks_0.sugarmaple_planks.name=Sugar Maple Wood Planks
+tile.beech_stairs.name=Beech Wood Stairs
+tile.cedar_stairs.name=Cedar Wood Stairs
+tile.hemlock_stairs.name=Hemlock Wood Stairs
+tile.sugarmaple_stairs.name=Sugar Maple Wood Stairs
+tile.beech_slab.name=Beech Wood Slab
+tile.cedar_slab.name=Cedar Wood Slab
+tile.hemlock_slab.name=Hemlock Wood Slab
+tile.sugarmaple_slab.name=Sugar Maple Wood Slab
+tile.cedar_siding.cedar_siding.name=Cedar Wood Siding
+tile.cedar_siding.cedar_shake_siding.name=Cedar Wood Shake
+tile.cedar_siding.weathered_cedar_siding.name=Weathered Wood Siding
+tile.cedar_siding.weathered_cedar_shake_siding.name=Weathered Wood Shake
+
+tile.log_0.beech_log.name=Beech Wood
+tile.log_0.cedar_log.name=Cedar Wood
+tile.log_0.hemlock_log.name=Hemlock Wood
+tile.log_0.sugarmaple_log.name=Sugar Maple Wood
+tile.leaf_0.beech_leaves.name=Beech Leaves
+tile.leaf_0.cedar_leaves.name=Cedar Leaves
+tile.leaf_0.hemlock_leaves.name=Hemlock Leaves
+tile.leaf_0.sugarmaple_leaves.name=Sugar Maple Leaves
+tile.sapling.beech_sapling.name=Beech Sapling
+tile.sapling.cedar_sapling.name=Cedar Sapling
+tile.sapling.hemlock_sapling.name=Hemlock Sapling
+tile.sapling.sugarmaple_sapling.name=Sugar Maple Sapling
+
+item.wooden_board.name=Wood Board
+item.boarded_door.name=Boarded Doorway
+item.secured_door.name=Secured Boarded Doorway
+item.electrum_shard.name=Electrum Fragment
+item.green_vitriol.name=Green Vitriol
+item.silver_chloride.name=Silver Chloride
