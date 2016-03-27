@@ -2,12 +2,15 @@ package com.arrabal.koth.init;
 
 import com.arrabal.koth.block.*;
 import com.arrabal.koth.handler.FurnaceFuelHandler;
+import com.arrabal.koth.reference.enums.SidingType;
 import com.arrabal.koth.reference.enums.SoKLogs;
 import com.arrabal.koth.reference.enums.SoKTrees;
 import com.arrabal.koth.util.CraftingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -33,6 +36,17 @@ public class ModCrafting {
         for (SoKLogs wood : SoKLogs.values()){
             GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.planks_0, 4, wood.getMetaData()), CraftingHelper.getItemStackFromProperty(ModBlocks.log_0, 1, BlockSoKLog.VARIANT, wood));
         }
+        GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.cedar_siding, 1, SidingType.CEDAR_SIDING.getMetaData()),
+                new Object[] {new ItemStack(ModBlocks.planks_0, 1, SoKLogs.CEDAR.getMetaData()), new ItemStack(ModItems.wooden_board, 1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.cedar_siding, 1, SidingType.CEDAR_SHAKE.getMetaData()),
+                new Object[] {new ItemStack(ModBlocks.planks_0, 1, SoKLogs.CEDAR.getMetaData()), new ItemStack(ModItems.wooden_board, 1),
+                        new ItemStack(ModItems.wooden_board, 1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.cedar_siding, 1, SidingType.WEATHERED_SIDING.getMetaData()),
+                new Object[] {new ItemStack(ModBlocks.cedar_siding, 1, SidingType.CEDAR_SIDING.getMetaData()),
+                new ItemStack(Blocks.dirt), new ItemStack(Items.water_bucket)});
+        GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.cedar_siding, 1, SidingType.WEATHERED_SHAKE.getMetaData()),
+                new Object[] {new ItemStack(ModBlocks.cedar_siding, 1, SidingType.CEDAR_SHAKE.getMetaData()),
+                        new ItemStack(Blocks.dirt), new ItemStack(Items.water_bucket)});
 
 
         //============================================Shaped Recipes==================================================//

@@ -8,7 +8,8 @@ import net.minecraft.util.IStringSerializable;
 public enum Minerals implements IStringSerializable {
     ELECTRUM_FRAGMENT(0, "electrum_shard"),
     GREEN_VITRIOL(1, "green_vitriol"),
-    SILVER_CHLORIDE(2, "silver_chloride");
+    SILVER_CHLORIDE(2, "silver_chloride"),
+    BRICK_DUST(3, "brick_dust");
 
     private static final Minerals[] META_LOOKUP = new Minerals[values().length];
     private final int meta;

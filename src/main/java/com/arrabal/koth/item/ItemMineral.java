@@ -28,8 +28,8 @@ public class ItemMineral extends ItemSoK {
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems){
-        subItems.add(new ItemStack(itemIn, 1, Minerals.ELECTRUM_FRAGMENT.getMetaData()));
-        subItems.add(new ItemStack(itemIn, 1, Minerals.GREEN_VITRIOL.getMetaData()));
-        subItems.add((new ItemStack(itemIn, 1, Minerals.SILVER_CHLORIDE.getMetaData())));
+        for (Minerals mineral : Minerals.values()){
+            subItems.add(new ItemStack(itemIn, 1, mineral.getMetaData()));
+        }
     }
 }
