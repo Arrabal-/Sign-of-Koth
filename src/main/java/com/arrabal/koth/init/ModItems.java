@@ -1,6 +1,8 @@
 package com.arrabal.koth.init;
 
 import com.arrabal.koth.item.ItemMineral;
+import com.arrabal.koth.item.ItemMortarAndPestle;
+import com.arrabal.koth.item.ItemStoneBowl;
 import com.arrabal.koth.item.ItemWoodenBoard;
 import com.arrabal.koth.reference.Reference;
 import com.arrabal.koth.util.ItemRegistryHelper;
@@ -20,6 +22,8 @@ public class ModItems {
     public static Item wooden_slab;
     public static final Item wooden_board = new ItemWoodenBoard();
     public static final Item minerals = new ItemMineral();
+    public static final Item stone_bowl = new ItemStoneBowl();
+    public static final Item mortar_pestle = new ItemMortarAndPestle();
 
     public static void init(){
         registerItems();
@@ -31,6 +35,8 @@ public class ModItems {
         // crafting components
         ItemRegistryHelper.registerItem(wooden_board, "wooden_board");
         ItemRegistryHelper.registerItem(minerals, "mineral");
+        ItemRegistryHelper.registerItem(stone_bowl, "stone_bowl");
+        ItemRegistryHelper.registerItem(mortar_pestle, "mortar_and_pestle");
 
     }
 

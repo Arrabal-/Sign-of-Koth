@@ -2,11 +2,13 @@ package com.arrabal.koth.init;
 
 import com.arrabal.koth.block.*;
 import com.arrabal.koth.handler.FurnaceFuelHandler;
-import com.arrabal.koth.reference.enums.SidingType;
-import com.arrabal.koth.reference.enums.SoKLogs;
-import com.arrabal.koth.reference.enums.SoKTrees;
+import com.arrabal.koth.item.ItemStoneBowl;
+import com.arrabal.koth.item.crafting.RecipesMortarAndPestle;
+import com.arrabal.koth.reference.enums.*;
 import com.arrabal.koth.util.CraftingHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHardenedClay;
+import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -14,7 +16,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.List;
 
@@ -29,6 +33,7 @@ public class ModCrafting {
         addSmeltingRecipes();
     }
 
+    @SuppressWarnings("RedundantArrayCreation")
     private static void addCraftingRecipes(){
 
         //===========================================Shapeless Recipes================================================//
@@ -47,6 +52,8 @@ public class ModCrafting {
         GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.cedar_siding, 1, SidingType.WEATHERED_SHAKE.getMetaData()),
                 new Object[] {new ItemStack(ModBlocks.cedar_siding, 1, SidingType.CEDAR_SHAKE.getMetaData()),
                         new ItemStack(Blocks.dirt), new ItemStack(Items.water_bucket)});
+        GameRegistry.addRecipe(new RecipesMortarAndPestle());
+        RecipeSorter.register("sok:mortar_pestle", RecipesMortarAndPestle.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 
 
         //============================================Shaped Recipes==================================================//
@@ -78,6 +85,31 @@ public class ModCrafting {
                 {"B  ",
                  " D ",
                  "B  ", 'B', new ItemStack(ModItems.wooden_board, 1), 'D', new ItemStack(((BlockSoKDoor)ModBlocks.boarded_door).getDoorItem(), 1)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.stone_bowl, 4, BowlType.ANDESITE.getMetaData()), new Object[]
+                {"S S",
+                 " S ", 'S', new ItemStack(Blocks.stone, 1, BlockStone.EnumType.ANDESITE_SMOOTH.getMetadata())});
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.stone_bowl, 4, BowlType.GRANITE.getMetaData()), new Object[]
+                {"S S",
+                        " S ", 'S', new ItemStack(Blocks.stone, 1, BlockStone.EnumType.GRANITE_SMOOTH.getMetadata())});
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.stone_bowl, 4, BowlType.DIORITE.getMetaData()), new Object[]
+                {"S S",
+                        " S ", 'S', new ItemStack(Blocks.stone, 1, BlockStone.EnumType.DIORITE_SMOOTH.getMetadata())});
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mortar_pestle, 1, BowlType.ANDESITE.getMetaData()), new Object[]
+                {"  S",
+                 " O ",
+                 "B  ", 'S', "stickWood", 'O', "stone", 'B', new ItemStack(ModItems.stone_bowl, 1, BowlType.ANDESITE.getMetaData())}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mortar_pestle, 1, BowlType.GRANITE.getMetaData()), new Object[]
+                {"  S",
+                 " O ",
+                 "B  ", 'S', "stickWood", 'O', "stone", 'B', new ItemStack(ModItems.stone_bowl, 1, BowlType.GRANITE.getMetaData())}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mortar_pestle, 1, BowlType.DIORITE.getMetaData()), new Object[]
+                {"  S",
+                 " O ",
+                 "B  ", 'S', "stickWood", 'O', "stone", 'B', new ItemStack(ModItems.stone_bowl, 1, BowlType.DIORITE.getMetaData())}));
+        // need new recipe class for mortar and pestle recipes so mortar and pestle is not consumed
+        //GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.minerals, 1, Minerals.BRICK_DUST.getMetaData()), new Object[]{"mortarPestle", "ingotBrick"}));
+        //GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.minerals, 4, Minerals.BRICK_DUST.getMetaData()), new Object[]{"mortarPestle", new ItemStack(Blocks.hardened_clay)}));
+
     }
 
     private static void addOreDictionaryRegistration(){
@@ -101,6 +133,11 @@ public class ModCrafting {
         for (SoKTrees tree : SoKTrees.values()){
             OreDictionary.registerOre("treeSapling", CraftingHelper.getItemStackFromProperty(ModBlocks.sapling, 1, BlockSoKSapling.VARIANT, tree));
             OreDictionary.registerOre("treeLeaves", CraftingHelper.getItemStackFromProperty(ModBlocks.leaf_0, 1, BlockSoKLeaves.VARIANT, tree));
+        }
+        // stone bowls and mortar and pestles
+        for (BowlType bowlType : BowlType.values()) {
+            OreDictionary.registerOre("bowlStone", new ItemStack(ModItems.stone_bowl, 1, bowlType.getMetaData()));
+            OreDictionary.registerOre("mortarPestle", new ItemStack(ModItems.mortar_pestle, 1, bowlType.getMetaData()));
         }
     }
 
