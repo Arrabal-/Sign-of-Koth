@@ -1,0 +1,6 @@
+{
+  "parent": "block/fence_side",
+  "textures": {
+    "texture": "sok:blocks/planks_hemlock"
+  }
+}

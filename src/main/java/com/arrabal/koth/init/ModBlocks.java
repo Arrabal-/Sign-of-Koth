@@ -7,6 +7,8 @@ import com.arrabal.koth.reference.enums.SoKLogs;
 import com.arrabal.koth.util.BlockRegistryHelper;
 import com.arrabal.koth.util.ItemRegistryHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -35,6 +37,12 @@ public class ModBlocks {
     public static final Block stairs_hemlock = new BlockSoKStairs(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.HEMLOCK));
     public static final Block stairs_maple = new BlockSoKStairs(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.SUGAR_MAPLE));
 
+    // Fences and Gates
+    public static final Block fence_beech = new BlockSoKWoodFence(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.BEECH));
+    public static final Block fence_cedar = new BlockSoKWoodFence(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.CEDAR));
+    public static final Block fence_hemlock = new BlockSoKWoodFence(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.HEMLOCK));
+    public static final Block fence_sugarmaple = new BlockSoKWoodFence(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.SUGAR_MAPLE));
+
     // Tree Blocks
     public static final Block log_0 = new BlockSoKLog();
     public static final Block leaf_0 = new BlockSoKLeaves();
@@ -62,6 +70,12 @@ public class ModBlocks {
         BlockRegistryHelper.registerBlock(stairs_cedar, "cedar_stairs");
         BlockRegistryHelper.registerBlock(stairs_hemlock, "hemlock_stairs");
         BlockRegistryHelper.registerBlock(stairs_maple, "sugarmaple_stairs");
+
+        // Fences and Gates
+        BlockRegistryHelper.registerBlock(fence_beech, "beech_fence");
+        BlockRegistryHelper.registerBlock(fence_cedar, "cedar_fence");
+        BlockRegistryHelper.registerBlock(fence_hemlock, "hemlock_fence");
+        BlockRegistryHelper.registerBlock(fence_sugarmaple, "sugarmaple_fence");
 
         // Tree Parts
         BlockRegistryHelper.registerBlock(log_0, "log_0", SoKCreativeTabs.tabSoKWorldGen);

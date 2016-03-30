@@ -21,6 +21,10 @@ tile.cedar_siding.cedar_siding.name=Cedar Wood Siding
 tile.cedar_siding.cedar_shake_siding.name=Cedar Wood Shake
 tile.cedar_siding.weathered_cedar_siding.name=Weathered Wood Siding
 tile.cedar_siding.weathered_cedar_shake_siding.name=Weathered Wood Shake
+tile.beech_fence.name=Beech Fence
+tile.cedar_fence.name=Cedar Fence
+tile.hemlock_fence.name=Hemlock Fence
+tile.sugarmaple_fence.name=Sugar Maple Fence
 
 tile.log_0.beech_log.name=Beech Wood
 tile.log_0.cedar_log.name=Cedar Wood
