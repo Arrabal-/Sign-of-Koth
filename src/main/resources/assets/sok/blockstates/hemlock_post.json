@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=up": { "model": "sok:hemlock_fence_post" },
+    "facing=down": { "model": "sok:hemlock_fence_post", "x": 180 },
+    "facing=east": { "model": "sok:hemlock_fence_post", "y": 90, "x": 90 },
+    "facing=south": { "model": "sok:hemlock_fence_post", "y": 180, "x": 90 },
+    "facing=west": { "model": "sok:hemlock_fence_post", "y": 270, "x": 90 },
+    "facing=north": { "model": "sok:hemlock_fence_post", "y": 0, "x": 90 }
+  }
+}

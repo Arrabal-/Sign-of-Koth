@@ -20,7 +20,9 @@ public class SoKGuiConfig extends GuiConfig {
     @SuppressWarnings("unchecked")
     private static List<IConfigElement> getConfigElements(){
         List<IConfigElement> list = new ArrayList<IConfigElement>();
-        list.add(new DummyConfigElement.DummyCategoryElement("Mod Mechanics Settings", Reference.MOD_ID,
+        list.add(new DummyConfigElement.DummyCategoryElement("Aesthetic Settings", Reference.MOD_ID,
+                new ConfigElement(ConfigHandler.config.getCategory(Names.Configuration.CATEGORY_AESTHETICS)).getChildElements()));
+        list.add(new DummyConfigElement.DummyCategoryElement("Mechanics Settings", Reference.MOD_ID,
                 new ConfigElement(ConfigHandler.config.getCategory(Names.Configuration.CATEGORY_MECHANICS)).getChildElements()));
 
         return list;

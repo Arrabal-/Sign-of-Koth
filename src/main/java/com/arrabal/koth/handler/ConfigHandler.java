@@ -1,6 +1,8 @@
 package com.arrabal.koth.handler;
 
+import com.arrabal.koth.reference.Names;
 import com.arrabal.koth.reference.Reference;
+import com.arrabal.koth.settings.ConfigurationSettings;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -28,6 +30,8 @@ public class ConfigHandler {
 
         try{
             //mod options
+            ConfigurationSettings.USE_VANILLA_TEXTURES = config.get(Names.Configuration.CATEGORY_AESTHETICS, "bVanillaTextures", false,
+                    "Set to true to disable overridden vanilla textures.").setRequiresMcRestart(true).getBoolean();
 
 
         } catch (Exception e){

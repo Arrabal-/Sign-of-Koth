@@ -42,6 +42,14 @@ public class ModBlocks {
     public static final Block fence_cedar = new BlockSoKWoodFence(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.CEDAR));
     public static final Block fence_hemlock = new BlockSoKWoodFence(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.HEMLOCK));
     public static final Block fence_sugarmaple = new BlockSoKWoodFence(planks_0.getDefaultState().withProperty(BlockSoKPlanks.VARIANT, SoKLogs.SUGAR_MAPLE));
+    public static final Block gate_beech = new BlockSoKFenceGate();
+    public static final Block gate_cedar = new BlockSoKFenceGate();
+    public static final Block gate_hemlock = new BlockSoKFenceGate();
+    public static final Block gate_sugarmaple = new BlockSoKFenceGate();
+    public static final Block post_beech = new BlockSoKWoodPost();
+    public static final Block post_cedar = new BlockSoKWoodPost();
+    public static final Block post_hemlock = new BlockSoKWoodPost();
+    public static final Block post_sugarmaple = new BlockSoKWoodPost();
 
     // Tree Blocks
     public static final Block log_0 = new BlockSoKLog();
@@ -76,6 +84,14 @@ public class ModBlocks {
         BlockRegistryHelper.registerBlock(fence_cedar, "cedar_fence");
         BlockRegistryHelper.registerBlock(fence_hemlock, "hemlock_fence");
         BlockRegistryHelper.registerBlock(fence_sugarmaple, "sugarmaple_fence");
+        BlockRegistryHelper.registerBlock(gate_beech, "beech_fence_gate");
+        BlockRegistryHelper.registerBlock(gate_cedar, "cedar_fence_gate");
+        BlockRegistryHelper.registerBlock(gate_hemlock, "hemlock_fence_gate");
+        BlockRegistryHelper.registerBlock(gate_sugarmaple, "sugarmaple_fence_gate");
+        BlockRegistryHelper.registerBlock(post_beech, "beech_post");
+        BlockRegistryHelper.registerBlock(post_cedar, "cedar_post");
+        BlockRegistryHelper.registerBlock(post_hemlock, "hemlock_post");
+        BlockRegistryHelper.registerBlock(post_sugarmaple, "sugarmaple_post");
 
         // Tree Parts
         BlockRegistryHelper.registerBlock(log_0, "log_0", SoKCreativeTabs.tabSoKWorldGen);

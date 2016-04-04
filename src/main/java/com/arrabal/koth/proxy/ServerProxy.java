@@ -46,4 +46,9 @@ public class ServerProxy extends CommonProxy {
     public void registerBlockSided(Block block) {
         //do nothing
     }
+
+    @Override
+    public void processTextureOverrides() {
+        // do nothing
+    }
 }

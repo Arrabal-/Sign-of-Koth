@@ -1,0 +1,6 @@
+{
+  "parent": "sok:block/wood_post_inventory",
+  "textures": {
+    "texture": "sok:blocks/planks_beech"
+  }
+}

@@ -1,8 +1,9 @@
 package com.arrabal.koth.proxy;
 
 import com.arrabal.koth.api.block.ISoKBlock;
+import com.arrabal.koth.client.texture.RestoredVanillaResourcePack;
 import com.arrabal.koth.reference.Reference;
-import com.arrabal.koth.util.LogHelper;
+import com.arrabal.koth.settings.ConfigurationSettings;
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -11,11 +12,17 @@ import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
+import net.minecraft.client.resources.AbstractResourcePack;
+import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Arrabal on 2/20/2016.
@@ -89,5 +96,24 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerVillage() {
         super.registerVillage();
+    }
+
+    @Override
+    public void processTextureOverrides() {
+        if (ConfigurationSettings.USE_VANILLA_TEXTURES){
+            FMLClientHandler clientHandler = FMLClientHandler.instance();
+
+            List<IResourcePack> resourcePackList = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackList");
+            Map<String, IResourcePack> resourcePackMap = ReflectionHelper.getPrivateValue(FMLClientHandler.class, clientHandler, "resourcePackMap");
+            AbstractResourcePack resourcePack = (AbstractResourcePack) clientHandler.getResourcePackFor(Reference.MOD_ID);
+
+            resourcePackList.remove(resourcePack);
+            resourcePackMap.remove(Reference.MOD_ID);
+
+            RestoredVanillaResourcePack restoredVanillaResourcePack = new RestoredVanillaResourcePack(FMLCommonHandler.instance().findContainerFor(Reference.MOD_ID));
+
+            resourcePackList.add(restoredVanillaResourcePack);
+            resourcePackMap.put(Reference.MOD_ID, restoredVanillaResourcePack);
+        }
     }
 }

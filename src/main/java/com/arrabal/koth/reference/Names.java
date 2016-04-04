@@ -14,6 +14,7 @@ public class Names {
     public static final class Configuration {
 
         public static final String CATEGORY_MECHANICS = "mod_mechanics";
+        public static final String CATEGORY_AESTHETICS = "mod_aesthetics";
     }
 
     public static final class LootTables {

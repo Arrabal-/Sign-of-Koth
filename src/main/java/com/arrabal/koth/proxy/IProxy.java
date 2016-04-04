@@ -26,4 +26,6 @@ public interface IProxy {
     public abstract void registerBlockSided(Block block);
 
     public abstract void registerVillage();
+
+    public abstract void processTextureOverrides();
 }

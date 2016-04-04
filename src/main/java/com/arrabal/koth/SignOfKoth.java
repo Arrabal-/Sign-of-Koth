@@ -43,6 +43,7 @@ public class SignOfKoth {
         proxy.registerEventHandlers();
 
         ModCrafting.init();
+        //proxy.processTextureOverrides();
     }
 
     @Mod.EventHandler

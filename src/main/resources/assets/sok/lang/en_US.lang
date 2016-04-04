@@ -25,6 +25,14 @@ tile.beech_fence.name=Beech Fence
 tile.cedar_fence.name=Cedar Fence
 tile.hemlock_fence.name=Hemlock Fence
 tile.sugarmaple_fence.name=Sugar Maple Fence
+tile.beech_fence_gate.name=Beech Fence Gate
+tile.cedar_fence_gate.name=Cedar Fence Gate
+tile.hemlock_fence_gate.name=Hemlock Fence Gate
+tile.sugarmaple_fence_gate.name=Sugar Maple Fence Gate
+tile.beech_post.name=Beech Wood Post
+tile.cedar_post.name=Cedar Wood Post
+tile.hemlock_post.name=Hemlock Wood Post
+tile.sugarmaple_post.name=Sugar Maple Wood Post
 
 tile.log_0.beech_log.name=Beech Wood
 tile.log_0.cedar_log.name=Cedar Wood
