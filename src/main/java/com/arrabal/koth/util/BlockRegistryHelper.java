@@ -57,13 +57,7 @@ public class BlockRegistryHelper {
         if (block instanceof ISoKBlock) {
             ISoKBlock sokBlock = (ISoKBlock) block;
             GameRegistry.register(block);
-            if (block instanceof BlockSlab) {
-                BlockSlab slabBlock = (BlockSlab) sokBlock;
-                if (!slabBlock.isDouble()) {
-                    String IBRegName = Reference.MOD_PREFIX + blockName + "_itemblock";
-                    GameRegistry.register(new ItemSoKBlock(block), new ResourceLocation(IBRegName));
-                }
-            } else {
+            if (!(block instanceof BlockSlab)) {
                 String IBRegName = Reference.MOD_PREFIX + blockName + "_itemblock";
                 GameRegistry.register(new ItemSoKBlock(block), new ResourceLocation(IBRegName));
             }
