@@ -106,9 +106,43 @@ public class ModCrafting {
                 {"  S",
                  " O ",
                  "B  ", 'S', "stickWood", 'O', "stone", 'B', new ItemStack(ModItems.stone_bowl, 1, BowlType.DIORITE.getMetaData())}));
-        // need new recipe class for mortar and pestle recipes so mortar and pestle is not consumed
-        //GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.minerals, 1, Minerals.BRICK_DUST.getMetaData()), new Object[]{"mortarPestle", "ingotBrick"}));
-        //GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.minerals, 4, Minerals.BRICK_DUST.getMetaData()), new Object[]{"mortarPestle", new ItemStack(Blocks.hardened_clay)}));
+        // Fences and Fence Gates
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.gate_beech, 2), new Object[]
+                {"SPS",
+                 "S S", 'S', new ItemStack(ModBlocks.post_beech, 1), 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.BEECH)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.gate_cedar, 2), new Object[]
+                {"SPS",
+                 "S S", 'S', new ItemStack(ModBlocks.post_cedar, 1), 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.CEDAR)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.gate_hemlock, 2), new Object[]
+                {"SPS",
+                 "S S", 'S', new ItemStack(ModBlocks.post_hemlock, 1), 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.HEMLOCK)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.gate_sugarmaple, 2), new Object[]
+                {"SPS",
+                 "S S", 'S', new ItemStack(ModBlocks.post_sugarmaple, 1), 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.SUGAR_MAPLE)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.post_beech, 1), new Object[]
+                {"S", "P", 'S', CraftingHelper.getItemStackFromProperty(ModBlocks.wooden_slab, 1, BlockSoKWoodSlab.VARIANT, SoKLogs.BEECH),
+                 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.BEECH)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.post_cedar, 1), new Object[]
+                {"S", "P", 'S', CraftingHelper.getItemStackFromProperty(ModBlocks.wooden_slab, 1, BlockSoKWoodSlab.VARIANT, SoKLogs.CEDAR),
+                 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.CEDAR)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.post_hemlock, 1), new Object[]
+                {"S", "P", 'S', CraftingHelper.getItemStackFromProperty(ModBlocks.wooden_slab, 1, BlockSoKWoodSlab.VARIANT, SoKLogs.HEMLOCK),
+                 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.HEMLOCK)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.post_sugarmaple, 1), new Object[]
+                {"S", "P", 'S', CraftingHelper.getItemStackFromProperty(ModBlocks.wooden_slab, 1, BlockSoKWoodSlab.VARIANT, SoKLogs.SUGAR_MAPLE),
+                 'P', CraftingHelper.getItemStackFromProperty(ModBlocks.planks_0, 1, BlockSoKPlanks.VARIANT, SoKLogs.SUGAR_MAPLE)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.fence_beech, 2), new Object[]
+                {"PBP",
+                 "PBP", 'P', new ItemStack(ModBlocks.post_beech, 1), 'B', new ItemStack(ModItems.wooden_board, 1)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.fence_cedar, 2), new Object[]
+                {"PBP",
+                 "PBP", 'P', new ItemStack(ModBlocks.post_cedar, 1), 'B', new ItemStack(ModItems.wooden_board, 1)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.fence_hemlock, 2), new Object[]
+                {"PBP",
+                 "PBP", 'P', new ItemStack(ModBlocks.post_hemlock, 1), 'B', new ItemStack(ModItems.wooden_board, 1)});
+        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.fence_sugarmaple, 2), new Object[]
+                {"PBP",
+                 "PBP", 'P', new ItemStack(ModBlocks.post_sugarmaple, 1), 'B', new ItemStack(ModItems.wooden_board, 1)});
 
     }
 
@@ -154,6 +188,8 @@ public class ModCrafting {
         sokFuelHandler.addFuel(ModBlocks.sapling, 100);
         sokFuelHandler.addFuel(ModBlocks.wooden_slab, 150);
         sokFuelHandler.addFuel(ModItems.wooden_board, 75);
+        sokFuelHandler.addFuel(ModItems.boarded_door, 450);
+        sokFuelHandler.addFuel(ModItems.secured_door, 600);
 
     }
 }

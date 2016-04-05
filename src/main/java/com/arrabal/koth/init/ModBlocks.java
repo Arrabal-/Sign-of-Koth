@@ -12,7 +12,9 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemSlab;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -101,6 +103,8 @@ public class ModBlocks {
         // Door Blocks
         BlockRegistryHelper.registerDoor((BlockSoKDoor) boarded_door, "boarded_door", ModItems.boarded_door);
         BlockRegistryHelper.registerDoor((BlockSoKDoor) secured_door, "secured_door", ModItems.secured_door);
+        ModItems.boarded_door = Item.itemRegistry.getObject(new ResourceLocation(Reference.MOD_PREFIX + "boarded_door_item"));
+        ModItems.secured_door = Item.itemRegistry.getObject(new ResourceLocation(Reference.MOD_PREFIX + "secured_door_item"));
 
         // Set Fire Info
         ModBlocks.initFireValues();
