@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
@@ -26,12 +27,18 @@ public class ItemRegistryHelper {
         return registerItem(item, name, SoKCreativeTabs.tabSoKItems);
     }
 
+    public static Item registerItem(ItemSlab item, String name){
+        return GameRegistry.register(item, new ResourceLocation(Reference.MOD_PREFIX + name));
+    }
+
     public static Item registerItem(Item item, String name, CreativeTabs creativeTab){
         item.setUnlocalizedName(name);
         if (creativeTab != null) {
             item.setCreativeTab(creativeTab);
         }
-        GameRegistry.registerItem(item, name);
+        String itemRegName = Reference.MOD_PREFIX + name + "_item" ;
+        item.setRegistryName(new ResourceLocation(itemRegName));
+        GameRegistry.register(item);
 
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT){
