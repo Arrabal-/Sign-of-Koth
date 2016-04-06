@@ -143,7 +143,10 @@ public class ModCrafting {
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.fence_sugarmaple, 2), new Object[]
                 {"PBP",
                  "PBP", 'P', new ItemStack(ModBlocks.post_sugarmaple, 1), 'B', new ItemStack(ModItems.wooden_board, 1)});
-
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.metals, 1, Metals.PURE_SILVER_INGOT.getMetaData()), new Object[]
+                {"NNN",
+                 "NNN",
+                 "NNN", 'N', new ItemStack(ModItems.metals, 1, Metals.PURE_SILVER_NUGGET.getMetaData())});
     }
 
     private static void addOreDictionaryRegistration(){
@@ -181,6 +184,7 @@ public class ModCrafting {
         for (SoKLogs wood : SoKLogs.values()){
             GameRegistry.addSmelting(CraftingHelper.getItemStackFromProperty(ModBlocks.log_0, 1, BlockSoKLog.VARIANT, wood), new ItemStack(Items.coal, 1, 1), 0.15f);
         }
+        GameRegistry.addSmelting(new ItemStack(ModItems.minerals, 1, Minerals.SILVER_CHLORIDE.getMetaData()), new ItemStack(ModItems.metals, 1, Metals.PURE_SILVER_NUGGET.getMetaData()), 0.1f);
 
         // add new fuels
         FurnaceFuelHandler sokFuelHandler = new FurnaceFuelHandler();
