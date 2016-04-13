@@ -22,6 +22,8 @@ public class ModItems {
     public static final Item stone_bowl = new ItemStoneBowl();
     public static final Item mortar_pestle = new ItemMortarAndPestle();
     public static final Item metals = new ItemMetal();
+    public static final Item dossier = new ItemGuide();
+    public static final Item scrawled_notes = new ItemFoundNotes();
 
     public static void init(){
         registerItems();
@@ -36,6 +38,8 @@ public class ModItems {
         ItemRegistryHelper.registerItem(stone_bowl, "stone_bowl");
         ItemRegistryHelper.registerItem(mortar_pestle, "mortar_and_pestle");
         ItemRegistryHelper.registerItem(metals, "metal");
+        ItemRegistryHelper.registerItem(dossier, "sok_guide");
+        ItemRegistryHelper.registerItem(scrawled_notes, "scrawled_notes");
 
     }
 
