@@ -32,34 +32,17 @@ public class SignOfKoth {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
-        ConfigHandler.init(event.getModConfigurationDirectory() + Reference.CONFIG_FOLDER);
-        Network.init();
-        proxy.registerKeyBindings();
-        //ModEvents.init();
-        proxy.registerOBJLoader();
-        ModItems.init();
-        ModBlocks.init();
-
-        ModVanillaCompatability.init();
-        proxy.registerEventHandlers();
-
-        ModCrafting.init();
-        //proxy.processTextureOverrides();
+        proxy.preInit(event);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
-        proxy.registerColoring();
-        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-        TileEntities.init();
-        proxy.registerRendering();
-        proxy.registerEventHandlers();
-        proxy.registerVillage();
+        proxy.init(event);
 
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event){
-
+        proxy.postInit(event);
     }
 }
