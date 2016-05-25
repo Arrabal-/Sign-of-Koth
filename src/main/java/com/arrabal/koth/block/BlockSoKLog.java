@@ -103,7 +103,7 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
 
     @Override
     public float getPlayerRelativeBlockHardness(IBlockState state, EntityPlayer playerIn, World worldIn, BlockPos pos){
-        float hardness = state.getBlock().getBlockHardness(state, worldIn, pos);
+        float hardness = state.getBlockHardness(worldIn, pos);
         if (hardness < 0.0F)
         {
             return 0.0F;
@@ -111,11 +111,11 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
 
         if (!canHarvestBlock(state.getBlock(), playerIn, worldIn, pos))
         {
-            return playerIn.getBreakSpeed(state, pos) / hardness / 100F;
+            return playerIn.getDigSpeed(state, pos) / hardness / 100F;
         }
         else
         {
-            return playerIn.getBreakSpeed(state, pos) / hardness / 30F;
+            return playerIn.getDigSpeed(state, pos) / hardness / 30F;
         }
     }
 

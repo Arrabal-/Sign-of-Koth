@@ -39,11 +39,11 @@ public class CommandSpawnLootChest extends CommandBase {
         }
 
         BlockPos pos = new BlockPos(parseInt(args[1]), parseInt(args[2]), parseInt(args[3]));
-        IBlockState chest = Blocks.chest.getDefaultState();
-        sender.getEntityWorld().setBlockState(pos, Blocks.chest.correctFacing(sender.getEntityWorld(), pos, chest), 2);
+        IBlockState chest = Blocks.CHEST.getDefaultState();
+        sender.getEntityWorld().setBlockState(pos, Blocks.CHEST.correctFacing(sender.getEntityWorld(), pos, chest), 2);
         TileEntity teChest = sender.getEntityWorld().getTileEntity(pos);
         if (teChest instanceof TileEntityChest){
-            ((TileEntityChest)teChest).setLoot(ModLootTableList.CHESTS_VILLAGE_ABANDONED_HOUSE, new Random(sender.getEntityWorld().getTotalWorldTime()).nextLong());
+            ((TileEntityChest)teChest).setLootTable(ModLootTableList.CHESTS_VILLAGE_ABANDONED_HOUSE, new Random(sender.getEntityWorld().getTotalWorldTime()).nextLong());
             //((TileEntityChest)teChest).setLoot(LootTableList.CHESTS_VILLAGE_BLACKSMITH, new Random(sender.getEntityWorld().getTotalWorldTime()).nextLong());
         }
     }

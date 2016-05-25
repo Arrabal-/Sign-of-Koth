@@ -28,4 +28,6 @@ public interface IProxy {
     public abstract void registerVillage();
 
     public abstract void processTextureOverrides();
+
+    public abstract void registerOBJLoader();
 }

@@ -16,11 +16,11 @@ public class BlockSoKSiding extends VariantSoKBlock {
     public static final PropertyBool WEATHERED = PropertyBool.create("weathered");
 
     public BlockSoKSiding(){
-        super(Material.wood);
+        super(Material.WOOD);
         this.setDefaultState(this.getDefaultState().withProperty(SHAKE, Boolean.FALSE).withProperty(WEATHERED, Boolean.FALSE));
         this.setHardness(2.0f);
         this.setResistance(5.0f);
-        this.setStepSound(SoundType.WOOD);
+        this.setSoundType(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
     }
 

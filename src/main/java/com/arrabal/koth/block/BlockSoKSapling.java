@@ -40,7 +40,7 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
 
     public BlockSoKSapling(){
         super();
-        this.setStepSound(SoundType.PLANT);
+        this.setSoundType(SoundType.PLANT);
         this.setHardness(0.0f);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, SoKTrees.CEDAR).withProperty(STAGE, Integer.valueOf(0)));
     }
@@ -95,7 +95,7 @@ public class BlockSoKSapling extends BlockBush implements IGrowable, ISoKBlock {
         boolean extraHeight = random.nextInt(10) == 0;
         WorldGenerator worldGenerator = getSmallTreeGenerator(state.getValue(VARIANT), extraHeight);
 
-        IBlockState clearState = Blocks.air.getDefaultState();
+        IBlockState clearState = Blocks.AIR.getDefaultState();
 
         worldIn.setBlockState(blockPos, clearState, 4);
         if (!worldGenerator.generate(worldIn, random, blockPos)){

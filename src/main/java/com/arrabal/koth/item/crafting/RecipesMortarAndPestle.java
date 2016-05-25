@@ -35,9 +35,9 @@ public class RecipesMortarAndPestle implements IRecipe {
                     numMortar++;
                     this.mortarPestle = itemStack;
                 }
-                else if (itemStack.getItem() == Items.brick) numBricks++;
+                else if (itemStack.getItem() == Items.BRICK) numBricks++;
                 else if (itemStack.getItem() instanceof ItemBlock){
-                    if ( ((ItemBlock) itemStack.getItem()).getBlock() == Blocks.hardened_clay) numHardClay++;
+                    if ( ((ItemBlock) itemStack.getItem()).getBlock() == Blocks.HARDENED_CLAY) numHardClay++;
                 }
             }
         }

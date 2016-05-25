@@ -48,10 +48,10 @@ public class ModCrafting {
                         new ItemStack(ModItems.wooden_board, 1)});
         GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.cedar_siding, 1, SidingType.WEATHERED_SIDING.getMetaData()),
                 new Object[] {new ItemStack(ModBlocks.cedar_siding, 1, SidingType.CEDAR_SIDING.getMetaData()),
-                new ItemStack(Blocks.dirt), new ItemStack(Items.water_bucket)});
+                new ItemStack(Blocks.DIRT), new ItemStack(Items.WATER_BUCKET)});
         GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.cedar_siding, 1, SidingType.WEATHERED_SHAKE.getMetaData()),
                 new Object[] {new ItemStack(ModBlocks.cedar_siding, 1, SidingType.CEDAR_SHAKE.getMetaData()),
-                        new ItemStack(Blocks.dirt), new ItemStack(Items.water_bucket)});
+                        new ItemStack(Blocks.DIRT), new ItemStack(Items.WATER_BUCKET)});
         GameRegistry.addRecipe(new RecipesMortarAndPestle());
         RecipeSorter.register("sok:mortar_pestle", RecipesMortarAndPestle.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 
@@ -87,13 +87,13 @@ public class ModCrafting {
                  "B  ", 'B', new ItemStack(ModItems.wooden_board, 1), 'D', new ItemStack(((BlockSoKDoor)ModBlocks.boarded_door).getDoorItem(), 1)});
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.stone_bowl, 4, BowlType.ANDESITE.getMetaData()), new Object[]
                 {"S S",
-                 " S ", 'S', new ItemStack(Blocks.stone, 1, BlockStone.EnumType.ANDESITE_SMOOTH.getMetadata())});
+                 " S ", 'S', new ItemStack(Blocks.STONE, 1, BlockStone.EnumType.ANDESITE_SMOOTH.getMetadata())});
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.stone_bowl, 4, BowlType.GRANITE.getMetaData()), new Object[]
                 {"S S",
-                        " S ", 'S', new ItemStack(Blocks.stone, 1, BlockStone.EnumType.GRANITE_SMOOTH.getMetadata())});
+                        " S ", 'S', new ItemStack(Blocks.STONE, 1, BlockStone.EnumType.GRANITE_SMOOTH.getMetadata())});
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.stone_bowl, 4, BowlType.DIORITE.getMetaData()), new Object[]
                 {"S S",
-                        " S ", 'S', new ItemStack(Blocks.stone, 1, BlockStone.EnumType.DIORITE_SMOOTH.getMetadata())});
+                        " S ", 'S', new ItemStack(Blocks.STONE, 1, BlockStone.EnumType.DIORITE_SMOOTH.getMetadata())});
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.mortar_pestle, 1, BowlType.ANDESITE.getMetaData()), new Object[]
                 {"  S",
                  " O ",
@@ -182,7 +182,7 @@ public class ModCrafting {
 
         //smelt SoK Logs into charcoal
         for (SoKLogs wood : SoKLogs.values()){
-            GameRegistry.addSmelting(CraftingHelper.getItemStackFromProperty(ModBlocks.log_0, 1, BlockSoKLog.VARIANT, wood), new ItemStack(Items.coal, 1, 1), 0.15f);
+            GameRegistry.addSmelting(CraftingHelper.getItemStackFromProperty(ModBlocks.log_0, 1, BlockSoKLog.VARIANT, wood), new ItemStack(Items.COAL, 1, 1), 0.15f);
         }
         GameRegistry.addSmelting(new ItemStack(ModItems.minerals, 1, Minerals.SILVER_CHLORIDE.getMetaData()), new ItemStack(ModItems.metals, 1, Metals.PURE_SILVER_NUGGET.getMetaData()), 0.1f);
 

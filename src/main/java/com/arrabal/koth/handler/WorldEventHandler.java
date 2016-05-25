@@ -2,7 +2,7 @@ package com.arrabal.koth.handler;
 
 import com.arrabal.koth.util.WorldGenerationHelper;
 import com.arrabal.koth.world.gen.feature.WorldGenCedar;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
@@ -19,7 +19,7 @@ public class WorldEventHandler {
     @SubscribeEvent
     public void onDecorateBiomeEvent(DecorateBiomeEvent.Decorate event){
         if (event.getType() == DecorateBiomeEvent.Decorate.EventType.TREE){
-            BiomeGenBase eventBiome = event.getWorld().getBiomeGenForCoords(event.getPos());
+            Biome eventBiome = event.getWorld().getBiomeGenForCoords(event.getPos());
             if (BiomeDictionary.isBiomeOfType(eventBiome, BiomeDictionary.Type.PLAINS) && !BiomeDictionary.isBiomeOfType(eventBiome, BiomeDictionary.Type.HOT)){
                 // insert generation of cedar trees into plains type biomes
                 WorldGenerationHelper.insertSparseTreeGenerator(event.getWorld(), event.getRand(), event.getPos(), this.cedarTreeGenerator);

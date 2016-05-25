@@ -17,7 +17,7 @@ public class SoKCreativeTabs {
         @SideOnly(Side.CLIENT)
         @Override
         public Item getTabIconItem(){
-            return Item.getItemFromBlock(Blocks.brick_block); //TODO:  replace with mod block
+            return Item.getItemFromBlock(Blocks.BRICK_BLOCK); //TODO:  replace with mod block
         }
     };
 
@@ -25,7 +25,7 @@ public class SoKCreativeTabs {
         @SideOnly(Side.CLIENT)
         @Override
         public Item getTabIconItem() {
-            return Items.item_frame; //TODO: replace with mod item
+            return Items.ITEM_FRAME; //TODO: replace with mod item
         }
     };
 
@@ -33,7 +33,7 @@ public class SoKCreativeTabs {
         @SideOnly(Side.CLIENT)
         @Override
         public Item getTabIconItem() {
-            return Item.getItemFromBlock(Blocks.pumpkin); //TODO:  replae with mod block
+            return Item.getItemFromBlock(Blocks.PUMPKIN); //TODO:  replae with mod block
         }
     };
 

@@ -51,4 +51,9 @@ public class ServerProxy extends CommonProxy {
     public void processTextureOverrides() {
         // do nothing
     }
+
+    @Override
+    public void registerOBJLoader() {
+        // do nothing
+    }
 }

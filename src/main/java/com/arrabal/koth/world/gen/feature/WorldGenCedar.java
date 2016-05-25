@@ -65,7 +65,7 @@ public class WorldGenCedar extends WorldGenAbstractTree {
                 for (int x = position.getX() - radius; x <= position.getX() + radius && hasSpace; x++){
                     for (int z = position.getZ() - radius; z <= position.getZ() + radius && hasSpace; z++){
                         if (y >= 0 && y < 256){
-                            if (!this.isReplaceable(worldIn, mutableBlockPos.set(x, y, z))){
+                            if (!this.isReplaceable(worldIn, mutableBlockPos.setPos(x, y, z))){
                                 hasSpace = false;
                             }
                         }
@@ -144,7 +144,7 @@ public class WorldGenCedar extends WorldGenAbstractTree {
         BlockPos.MutableBlockPos buildPos = new BlockPos.MutableBlockPos();
         for (int h = 0; h < treeHeight - foliageCap; h++){
             int y = treeStart.getY() + h;
-            buildPos.set(treeStart.getX(), y, treeStart.getZ());
+            buildPos.setPos(treeStart.getX(), y, treeStart.getZ());
             Block buildBlock = worldIn.getBlockState(buildPos).getBlock();
             if (buildBlock.isAir(worldIn.getBlockState(buildPos), worldIn,buildPos) || buildBlock.isLeaves(worldIn.getBlockState(buildPos), worldIn, buildPos)){
                 this.setBlockAndNotifyAdequately(worldIn, buildPos, logType);

@@ -17,6 +17,7 @@ import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
@@ -115,5 +116,10 @@ public class ClientProxy extends CommonProxy {
             resourcePackList.add(restoredVanillaResourcePack);
             resourcePackMap.put(Reference.MOD_ID, restoredVanillaResourcePack);
         }
+    }
+
+    @Override
+    public void registerOBJLoader() {
+        OBJLoader.INSTANCE.addDomain(Reference.LOWERCASE_MOD_ID);
     }
 }

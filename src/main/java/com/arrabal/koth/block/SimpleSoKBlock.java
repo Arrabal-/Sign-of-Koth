@@ -22,7 +22,7 @@ import java.util.Random;
 public class SimpleSoKBlock extends Block {
 
     public SimpleSoKBlock(){
-        this(Material.rock);
+        this(Material.ROCK);
     }
 
     public SimpleSoKBlock(Material material){

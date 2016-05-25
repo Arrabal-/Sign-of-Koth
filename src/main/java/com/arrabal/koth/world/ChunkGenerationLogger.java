@@ -45,7 +45,7 @@ public class ChunkGenerationLogger extends WorldSavedData {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound nbt) {
+    public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
         int[] xsave = new int[this.xCoords.size()];
         int[] zsave = new int[this.zCoords.size()];
         for (int i = 0; i < xsave.length; i++)
@@ -55,6 +55,7 @@ public class ChunkGenerationLogger extends WorldSavedData {
         }
         nbt.setIntArray("xcoords", xsave);
         nbt.setIntArray("zcoords", zsave);
+        return nbt;
     }
 
     public boolean catchChunkBug(int chunkX, int chunkZ)

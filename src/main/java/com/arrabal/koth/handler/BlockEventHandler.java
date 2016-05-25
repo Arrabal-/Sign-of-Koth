@@ -16,7 +16,7 @@ public class BlockEventHandler {
 
     @SubscribeEvent
     public void onHarvestDropsEvent(BlockEvent.HarvestDropsEvent event){
-        if (event.getState().getBlock() == Blocks.gold_ore && !event.isSilkTouching()){
+        if (event.getState().getBlock() == Blocks.GOLD_ORE && !event.isSilkTouching()){
             Random random = new Random(event.getWorld().getTotalWorldTime());
             if (random.nextInt(100) < 15){
                 int numDropped = random.nextInt(3) + 1;
@@ -29,7 +29,7 @@ public class BlockEventHandler {
                 event.getDrops().add(stack);
             }
         }
-        else if (event.getState().getBlock() == Blocks.iron_ore && !event.isSilkTouching() && event.getPos().getY() >= 40) {
+        else if (event.getState().getBlock() == Blocks.IRON_ORE && !event.isSilkTouching() && event.getPos().getY() >= 40) {
                 Random random = new Random(event.getWorld().getTotalWorldTime());
                 if (random.nextInt(100) < 10) {
                     int numDropped = random.nextInt(3) + 1;

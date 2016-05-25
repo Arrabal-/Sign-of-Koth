@@ -36,10 +36,10 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
     }
 
     public BlockSoKDoor(boolean secured){
-        super(Material.wood);
+        super(Material.WOOD);
         this.setHardness(3.0f); // change based on material
         this.setHarvestLevel("axe",0); //change based on material and state
-        this.setStepSound(SoundType.WOOD); //change based on material
+        this.setSoundType(SoundType.WOOD); //change based on material
         this.disableStats();
         if (secured) {
             this.securedLevel = 2;
@@ -117,7 +117,7 @@ public class BlockSoKDoor extends BlockDoor implements ISoKBlock {
     }
 
     public Item getDoorItem(){
-        return this.doorItem == null ? Items.oak_door : this.doorItem;
+        return this.doorItem == null ? Items.OAK_DOOR : this.doorItem;
     }
 
     @Override

@@ -1,12 +1,12 @@
 package com.arrabal.koth.world.biome;
 
 import com.arrabal.koth.reference.enums.BiomeTypes;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 /**
  * Created by Arrabal on 3/21/2016.
  */
-public class BiomeGenSoKForest extends BiomeGenBase {
+public class BiomeGenSoKForest extends Biome {
 
     private BiomeTypes.Forests forestType;
 

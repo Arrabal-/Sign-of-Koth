@@ -27,7 +27,7 @@ import java.util.Random;
 public abstract class VariantSoKBlock extends Block implements ISoKBlock{
 
     public VariantSoKBlock() {
-        this(Material.rock);
+        this(Material.ROCK);
     }
 
     public VariantSoKBlock(Material material){

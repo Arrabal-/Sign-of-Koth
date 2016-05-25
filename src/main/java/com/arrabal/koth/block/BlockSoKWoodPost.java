@@ -40,8 +40,8 @@ public class BlockSoKWoodPost extends BlockDirectional implements ISoKBlock{
     //protected static final AxisAlignedBB[] BOUNDING_BOXES = new AxisAlignedBB[] {new AxisAlignedBB(0.375d, 0.0d, 0.375d, 0.625d, 1.0d, 0.625d), new AxisAlignedBB(0.0d, 0.375d, 0.375d, 1.0d, 0.625d, 0.625d), new AxisAlignedBB(0.375d, 0.375d, 0.0d, 0.625d, 0.625d, 1.0d)}
 
     public BlockSoKWoodPost(){
-        super(Material.wood);
-        this.setStepSound(SoundType.WOOD);
+        super(Material.WOOD);
+        this.setSoundType(SoundType.WOOD);
         this.setHardness(2.0f);
         this.setResistance(5.0f);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));

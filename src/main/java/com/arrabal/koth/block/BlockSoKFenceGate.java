@@ -20,7 +20,7 @@ public class BlockSoKFenceGate extends BlockFenceGate implements ISoKBlock{
         super(BlockPlanks.EnumType.BIRCH);
         this.setHardness(2.0f);
         this.setResistance(5.0f);
-        this.setStepSound(SoundType.WOOD);
+        this.setSoundType(SoundType.WOOD);
     }
 
     @Override

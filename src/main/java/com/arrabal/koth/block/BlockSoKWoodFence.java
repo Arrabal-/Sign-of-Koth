@@ -17,10 +17,10 @@ import net.minecraft.item.ItemBlock;
 public class BlockSoKWoodFence extends BlockFence implements ISoKBlock {
 
     public BlockSoKWoodFence(IBlockState parentState){
-        super(Material.wood, parentState.getMapColor());
+        super(Material.WOOD, parentState.getMapColor());
         this.setHardness(2.0f);
         this.setResistance(5.0f);
-        this.setStepSound(SoundType.WOOD);
+        this.setSoundType(SoundType.WOOD);
     }
 
 

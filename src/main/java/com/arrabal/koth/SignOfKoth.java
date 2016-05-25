@@ -36,6 +36,7 @@ public class SignOfKoth {
         Network.init();
         proxy.registerKeyBindings();
         //ModEvents.init();
+        proxy.registerOBJLoader();
         ModItems.init();
         ModBlocks.init();
 

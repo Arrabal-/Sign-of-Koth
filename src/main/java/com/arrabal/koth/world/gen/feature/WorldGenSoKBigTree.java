@@ -33,15 +33,17 @@ public class WorldGenSoKBigTree extends WorldGenBigTree {
     private List<WorldGenSoKBigTree.FoliageCoordinates> coordinatesList;
     private IBlockState leafType;
     private IBlockState logType;
+    private int minHeight;
 
     public WorldGenSoKBigTree(boolean notify, IBlockState leaves, IBlockState logs){
         super(notify);
         this.leafType = leaves;
         this.logType = logs;
+        this.minHeight = 0;
     }
 
     public WorldGenSoKBigTree(boolean notify, IBlockState leaves, IBlockState logs, double heightAttenuation, double branchSlope, double scaleWidth,
-                              double leafDensity, int trunkSize, int maxHeight, int leafDist){
+                              double leafDensity, int trunkSize, int maxHeight, int minHeight, int leafDist){
         super(notify);
         this.leafType = leaves;
         this.logType = logs;
@@ -52,6 +54,7 @@ public class WorldGenSoKBigTree extends WorldGenBigTree {
         this.trunkSize = trunkSize;
         this.heightLimitLimit = maxHeight;
         this.leafDistanceLimit = leafDist;
+        this.minHeight = minHeight;
     }
 
     private void generateLeafNodeList()
@@ -285,9 +288,9 @@ public class WorldGenSoKBigTree extends WorldGenBigTree {
 
     @Override
     // sets leaf distance limit
-    public void func_175904_e()
+    public void setDecorationDefaults()
     {
-        super.func_175904_e();
+        super.setDecorationDefaults();
         this.leafDistanceLimit = 5;
     }
 
@@ -300,7 +303,8 @@ public class WorldGenSoKBigTree extends WorldGenBigTree {
 
         if (this.heightLimit == 0)
         {
-            this.heightLimit = 5 + this.random.nextInt(this.heightLimitLimit);
+            //this.heightLimit = 5 + this.random.nextInt(this.heightLimitLimit);
+            this.heightLimit = (this.minHeight > 0) ? this.minHeight + this.random.nextInt(this.heightLimitLimit) : 5 + this.random.nextInt(this.heightLimitLimit);
         }
 
         if (!this.validTreeLocation())
@@ -323,7 +327,7 @@ public class WorldGenSoKBigTree extends WorldGenBigTree {
     {
         BlockPos down = this.basePos.down();
         net.minecraft.block.state.IBlockState state = this.world.getBlockState(down);
-        boolean isSoil = state.getBlock().canSustainPlant(state, this.world, down, net.minecraft.util.EnumFacing.UP, ((net.minecraft.block.BlockSapling) Blocks.sapling));
+        boolean isSoil = state.getBlock().canSustainPlant(state, this.world, down, net.minecraft.util.EnumFacing.UP, ((net.minecraft.block.BlockSapling) Blocks.SAPLING));
 
         if (!isSoil)
         {

@@ -30,7 +30,7 @@ public abstract class BlockSoKWoodSlab extends BlockSlab implements ISoKBlock {
     public static final PropertyEnum<SoKLogs> VARIANT = PropertyEnum.<SoKLogs>create("variant", SoKLogs.class);
 
     public BlockSoKWoodSlab(){
-        super(Material.wood);
+        super(Material.WOOD);
         IBlockState iblockstate = this.blockState.getBaseState();
         if (!this.isDouble()){
             iblockstate = iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
@@ -40,7 +40,7 @@ public abstract class BlockSoKWoodSlab extends BlockSlab implements ISoKBlock {
         this.useNeighborBrightness = !this.isDouble();
         this.setHardness(2.0f);
         this.setResistance(5.0f);
-        this.setStepSound(SoundType.WOOD);
+        this.setSoundType(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
     }
 
@@ -110,13 +110,13 @@ public abstract class BlockSoKWoodSlab extends BlockSlab implements ISoKBlock {
 
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face){
-        if (!this.isDouble()) return Blocks.wooden_slab.getFlammability(world, pos, face);
-        return Blocks.double_wooden_slab.getFlammability(world, pos, face);
+        if (!this.isDouble()) return Blocks.WOODEN_SLAB.getFlammability(world, pos, face);
+        return Blocks.DOUBLE_WOODEN_SLAB.getFlammability(world, pos, face);
     }
 
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face){
-        if (!this.isDouble()) return Blocks.wooden_slab.getFireSpreadSpeed(world, pos, face);
-        return Blocks.double_wooden_slab.getFireSpreadSpeed(world, pos, face);
+        if (!this.isDouble()) return Blocks.WOODEN_SLAB.getFireSpreadSpeed(world, pos, face);
+        return Blocks.DOUBLE_WOODEN_SLAB.getFireSpreadSpeed(world, pos, face);
     }
 }

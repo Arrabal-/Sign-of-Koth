@@ -12,7 +12,7 @@ public class WorldGenerationContainer {
     public WorldGenerationContainer(){}
 
     public WorldGenerationContainer(World world){
-        this.chunkLogger = (ChunkGenerationLogger) world.getPerWorldStorage().loadData(ChunkGenerationLogger.class, "SoKChunkLogger");
+        this.chunkLogger = (ChunkGenerationLogger) world.getPerWorldStorage().getOrLoadData(ChunkGenerationLogger.class, "SoKChunkLogger");
         if (this.chunkLogger == null){
             this.chunkLogger = new ChunkGenerationLogger("SoKChunkLogger");
             world.getPerWorldStorage().setData("SoKChunkLogger", this.chunkLogger);

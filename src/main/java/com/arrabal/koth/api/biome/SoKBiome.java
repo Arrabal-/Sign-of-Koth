@@ -1,11 +1,11 @@
 package com.arrabal.koth.api.biome;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.Biome;
 
 /**
  * Created by Arrabal on 3/21/2016.
  */
-public class SoKBiome extends BiomeGenBase {
+public class SoKBiome extends Biome {
 
 
     // default constructor.  Probably needs to be replaced.

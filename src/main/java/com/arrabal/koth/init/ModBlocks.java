@@ -24,8 +24,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModBlocks {
 
     // Simple Blocks
-    public static final SimpleSoKBlock textureTestBlock = new BlockSokTextureTest(Material.wood); //temporary block for testing out new textures
-    public static final SimpleSoKBlock textureTest2Block = new BlockSoKTextureTest2(Material.wood); //temporary block for testing out new textures
+    public static final SimpleSoKBlock textureTestBlock = new BlockSokTextureTest(Material.WOOD); //temporary block for testing out new textures
+    public static final SimpleSoKBlock textureTest2Block = new BlockSoKTextureTest2(Material.WOOD); //temporary block for testing out new textures
 
     // Variant Blocks
     public static final Block planks_0 = new BlockSoKPlanks();
@@ -61,6 +61,9 @@ public class ModBlocks {
     // Door Blocks
     public static final Block boarded_door = new BlockSoKDoor(false);
     public static final Block secured_door = new BlockSoKDoor(true);
+
+    // Models
+    public static final Block empty_brazier = new BlockSoKBrazierEmpty();
 
     public static void init(){
         // Simple Blocks
@@ -103,21 +106,21 @@ public class ModBlocks {
         // Door Blocks
         BlockRegistryHelper.registerDoor((BlockSoKDoor) boarded_door, "boarded_door", ModItems.boarded_door);
         BlockRegistryHelper.registerDoor((BlockSoKDoor) secured_door, "secured_door", ModItems.secured_door);
-        ModItems.boarded_door = Item.itemRegistry.getObject(new ResourceLocation(Reference.MOD_PREFIX + "boarded_door_item"));
-        ModItems.secured_door = Item.itemRegistry.getObject(new ResourceLocation(Reference.MOD_PREFIX + "secured_door_item"));
+        ModItems.boarded_door = Item.REGISTRY.getObject(new ResourceLocation(Reference.MOD_PREFIX + "boarded_door_item"));
+        ModItems.secured_door = Item.REGISTRY.getObject(new ResourceLocation(Reference.MOD_PREFIX + "secured_door_item"));
 
         // Set Fire Info
         ModBlocks.initFireValues();
     }
 
     private static void initFireValues(){
-        Blocks.fire.setFireInfo(log_0, 5, 5);
-        Blocks.fire.setFireInfo(leaf_0, 30, 60);
-        Blocks.fire.setFireInfo(planks_0, 5, 20);
-        Blocks.fire.setFireInfo(stairs_beech, 5, 20);
-        Blocks.fire.setFireInfo(stairs_cedar, 5, 20);
-        Blocks.fire.setFireInfo(stairs_hemlock, 5, 20);
-        Blocks.fire.setFireInfo(stairs_maple, 5, 20);
-        Blocks.fire.setFireInfo(cedar_siding, 5, 20);
+        Blocks.FIRE.setFireInfo(log_0, 5, 5);
+        Blocks.FIRE.setFireInfo(leaf_0, 30, 60);
+        Blocks.FIRE.setFireInfo(planks_0, 5, 20);
+        Blocks.FIRE.setFireInfo(stairs_beech, 5, 20);
+        Blocks.FIRE.setFireInfo(stairs_cedar, 5, 20);
+        Blocks.FIRE.setFireInfo(stairs_hemlock, 5, 20);
+        Blocks.FIRE.setFireInfo(stairs_maple, 5, 20);
+        Blocks.FIRE.setFireInfo(cedar_siding, 5, 20);
     }
 }

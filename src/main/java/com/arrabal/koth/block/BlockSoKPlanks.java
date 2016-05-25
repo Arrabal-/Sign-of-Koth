@@ -16,11 +16,11 @@ public class BlockSoKPlanks extends VariantSoKBlock {
     public static final PropertyEnum<SoKLogs> VARIANT = PropertyEnum.<SoKLogs>create("variant", SoKLogs.class);
 
     public BlockSoKPlanks(){
-        super(Material.wood);
+        super(Material.WOOD);
         this.setDefaultState(this.getDefaultState().withProperty(VARIANT, SoKLogs.BEECH));
         this.setHardness(2.0f);
         this.setResistance(5.0f);
-        this.setStepSound(SoundType.WOOD);
+        this.setSoundType(SoundType.WOOD);
         this.setHarvestLevel("axe", 0);
     }
 

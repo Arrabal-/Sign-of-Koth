@@ -175,18 +175,18 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     @SideOnly(Side.CLIENT)
     @Override
     public BlockRenderLayer getBlockLayer(){
-        return Blocks.leaves.getBlockLayer();
+        return Blocks.LEAVES.getBlockLayer();
     }
 
     @Override
     public boolean isOpaqueCube(IBlockState state){
-        return Blocks.leaves.isOpaqueCube(state);
+        return Blocks.LEAVES.isOpaqueCube(state);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side){
-        return Blocks.leaves.shouldSideBeRendered(state, world, pos, side);
+        return Blocks.LEAVES.shouldSideBeRendered(state, world, pos, side);
     }
 
     @Override
