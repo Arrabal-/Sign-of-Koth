@@ -1,6 +1,7 @@
 {
   "pools": [
     {
+      "name": "sok:village_abandoned_house",
       "rolls": {
         "min": 3,
         "max": 8

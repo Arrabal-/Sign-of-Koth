@@ -1,11 +1,13 @@
 {
   "pools": [
     {
+      "name": "sok:sapling_loottable",
       "rolls": 3,
       "entries": [
         {
+          "entryName": "sok:beech_saplings",
           "type": "item",
-          "name": "sok:sapling",
+          "name": "sok:sapling_itemblock",
           "weight": 25,
           "functions": [
             {
@@ -18,8 +20,9 @@
           ]
         },
         {
+          "entryName": "sok:cedar_saplings",
           "type": "item",
-          "name": "sok:sapling",
+          "name": "sok:sapling_itemblock",
           "weight": 25,
           "functions": [
             {
@@ -36,8 +39,9 @@
           ]
         },
         {
+          "entryName": "sok:hemlock_saplings",
           "type": "item",
-          "name": "sok:sapling",
+          "name": "sok:sapling_itemblock",
           "weight": 25,
           "functions": [
             {
@@ -54,8 +58,9 @@
           ]
         },
         {
+          "entryName": "sok:maple_saplings",
           "type": "item",
-          "name": "sok:sapling",
+          "name": "sok:sapling_itemblock",
           "weight": 25,
           "functions": [
             {
