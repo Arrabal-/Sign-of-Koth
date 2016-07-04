@@ -56,7 +56,7 @@ public class VillageAbandonedHouse extends StructureVillagePieces.Village implem
     }
 
     @Override
-    protected void placeDoorCurrentPosition(World worldIn, StructureBoundingBox boundingBoxIn, Random rand, int x, int y, int z, EnumFacing facing)
+    protected void func_189915_a(World worldIn, StructureBoundingBox boundingBoxIn, Random rand, int x, int y, int z, EnumFacing facing, BlockDoor doorBlock)
     {
         this.setBlockState(worldIn, ModBlocks.secured_door.getDefaultState().withProperty(BlockSoKDoor.FACING, facing), x, y, z, boundingBoxIn);
         this.setBlockState(worldIn, ModBlocks.secured_door.getDefaultState().withProperty(BlockSoKDoor.FACING, facing).withProperty(BlockSoKDoor.HALF, BlockSoKDoor.EnumDoorHalf.UPPER), x, y + 1, z, boundingBoxIn);
@@ -180,7 +180,7 @@ public class VillageAbandonedHouse extends StructureVillagePieces.Village implem
         this.setBlockState(worldIn, Blocks.AIR.getDefaultState(), 2, 1, 0, structureBoundingBoxIn);
         this.setBlockState(worldIn, Blocks.AIR.getDefaultState(), 2, 2, 0, structureBoundingBoxIn);
         this.setBlockState(worldIn, Blocks.TORCH.getDefaultState().withProperty(BlockTorch.FACING, EnumFacing.NORTH), 2, 3, 1, structureBoundingBoxIn);
-        this.placeDoorCurrentPosition(worldIn, structureBoundingBoxIn, randomIn, 2, 1, 0, EnumFacing.NORTH);
+        this.func_189915_a(worldIn, structureBoundingBoxIn, randomIn, 2, 1, 0, EnumFacing.NORTH, null);
         this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 0, -1, 3, 2, -1, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
 
         if (this.getBlockStateFromPos(worldIn, 2, 0, -1, structureBoundingBoxIn).getMaterial() == Material.AIR && this.getBlockStateFromPos(worldIn, 2, -1, -1, structureBoundingBoxIn).getMaterial() != Material.AIR)
