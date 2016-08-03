@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class SoKCreativeTabs {
 
-    public static final CreativeTabs tabSoKBlocks = new CreativeTabs(CreativeTabs.getNextID(), Reference.LOWERCASE_MOD_ID + "blocks"){
+    public static final CreativeTabs tabSoKBlocks = new CreativeTabs(CreativeTabs.getNextID(), Reference.MOD_ID + "blocks"){
         @SideOnly(Side.CLIENT)
         @Override
         public Item getTabIconItem(){
@@ -21,7 +21,7 @@ public class SoKCreativeTabs {
         }
     };
 
-    public static final CreativeTabs tabSoKItems = new CreativeTabs(CreativeTabs.getNextID(), Reference.LOWERCASE_MOD_ID + "items") {
+    public static final CreativeTabs tabSoKItems = new CreativeTabs(CreativeTabs.getNextID(), Reference.MOD_ID + "items") {
         @SideOnly(Side.CLIENT)
         @Override
         public Item getTabIconItem() {
@@ -29,7 +29,7 @@ public class SoKCreativeTabs {
         }
     };
 
-    public static final CreativeTabs tabSoKWorldGen = new CreativeTabs(CreativeTabs.getNextID(), Reference.LOWERCASE_MOD_ID + "world_gen") {
+    public static final CreativeTabs tabSoKWorldGen = new CreativeTabs(CreativeTabs.getNextID(), Reference.MOD_ID + "world_gen") {
         @SideOnly(Side.CLIENT)
         @Override
         public Item getTabIconItem() {

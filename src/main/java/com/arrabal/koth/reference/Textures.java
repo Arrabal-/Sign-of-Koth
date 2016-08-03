@@ -5,7 +5,7 @@ package com.arrabal.koth.reference;
  */
 public class Textures {
 
-    public static final String RESOURCE_PREFIX = Reference.LOWERCASE_MOD_ID + ":";
+    public static final String RESOURCE_PREFIX = Reference.MOD_ID + ":";
 
     public static final class Armor{
 

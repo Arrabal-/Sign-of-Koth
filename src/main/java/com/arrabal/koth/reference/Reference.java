@@ -5,9 +5,8 @@ package com.arrabal.koth.reference;
  */
 public class Reference {
 
-    public static final String MOD_ID = "SoK";
-    public static final String LOWERCASE_MOD_ID = MOD_ID.toLowerCase();
-    public static final String MOD_PREFIX = LOWERCASE_MOD_ID + ":";
+    public static final String MOD_ID = "sok";
+    public static final String MOD_PREFIX = MOD_ID + ":";
     public static final String MOD_NAME = "Sign of Koth";
     public static final String FINGERPRINT = "@FINGERPRINT@";
     public static final String MOD_VERSION = "@MOD_VERSION@";

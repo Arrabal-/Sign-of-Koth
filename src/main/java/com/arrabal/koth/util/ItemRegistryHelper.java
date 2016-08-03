@@ -49,13 +49,13 @@ public class ItemRegistryHelper {
                     String subItemName = item.getUnlocalizedName(subItem);
                     subItemName = subItemName.substring(subItemName.indexOf(".") + 1);
 
-                    ModelBakery.registerItemVariants(item, new ResourceLocation(Reference.LOWERCASE_MOD_ID,subItemName));
-                    ModelLoader.setCustomModelResourceLocation(item, subItem.getMetadata(), new ModelResourceLocation(Reference.LOWERCASE_MOD_ID + ":" + subItemName, "inventory"));
+                    ModelBakery.registerItemVariants(item, new ResourceLocation(Reference.MOD_ID,subItemName));
+                    ModelLoader.setCustomModelResourceLocation(item, subItem.getMetadata(), new ModelResourceLocation(Reference.MOD_ID + ":" + subItemName, "inventory"));
 
                 }
             }
             else {
-                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.LOWERCASE_MOD_ID + ":" + name, "inventory"));
+                ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + name, "inventory"));
             }
         }
         return item;

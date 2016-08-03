@@ -76,7 +76,7 @@ public class ClientProxy extends CommonProxy {
     public void registerItemVariantModel(Item item, String name, int metaData) {
         if (item != null){
             ModelBakery.registerItemVariants(item, new ResourceLocation(Reference.MOD_PREFIX + name));
-            ModelLoader.setCustomModelResourceLocation(item, metaData, new ModelResourceLocation(Reference.LOWERCASE_MOD_ID + ":" + name, "inventory"));
+            ModelLoader.setCustomModelResourceLocation(item, metaData, new ModelResourceLocation(Reference.MOD_ID + ":" + name, "inventory"));
         }
     }
 
@@ -123,7 +123,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerOBJLoader() {
-        OBJLoader.INSTANCE.addDomain(Reference.LOWERCASE_MOD_ID);
+        OBJLoader.INSTANCE.addDomain(Reference.MOD_ID);
     }
 
     @Override

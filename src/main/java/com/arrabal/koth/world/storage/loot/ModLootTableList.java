@@ -10,5 +10,5 @@ import net.minecraft.world.storage.loot.LootTableList;
  */
 public class ModLootTableList {
 
-    public static final ResourceLocation CHESTS_VILLAGE_ABANDONED_HOUSE = LootTableList.register(new ResourceLocation(Reference.LOWERCASE_MOD_ID, Names.LootTables.ABANDONED_VIL_HOUSE));
+    public static final ResourceLocation CHESTS_VILLAGE_ABANDONED_HOUSE = LootTableList.register(new ResourceLocation(Reference.MOD_ID, Names.LootTables.ABANDONED_VIL_HOUSE));
 }
