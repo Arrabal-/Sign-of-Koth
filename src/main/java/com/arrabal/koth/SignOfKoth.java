@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
  * Created by Arrabal on 2/19/2016.
  */
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, /*dependencies = Reference.DEPENDENCIES,*/ guiFactory = Reference.GUI_FACTORY_CLASS)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, dependencies = Reference.DEPENDENCIES, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class SignOfKoth {
 
     @Mod.Instance(Reference.MOD_ID)
