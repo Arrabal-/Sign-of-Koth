@@ -8,6 +8,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
 /**
@@ -15,14 +16,14 @@ import net.minecraft.world.World;
  */
 public class RecipesMortarAndPestle implements IRecipe {
 
-    private ItemStack craftingResult;
-    private ItemStack mortarPestle;
+    private ItemStack craftingResult = ItemStack.EMPTY;
+    private ItemStack mortarPestle = ItemStack.EMPTY;
 
     @Override
     public boolean matches(InventoryCrafting inv, World worldIn) {
 
-        this.craftingResult = null;
-        this.mortarPestle = null;
+        this.craftingResult = ItemStack.EMPTY;
+        this.mortarPestle = ItemStack.EMPTY;
         int numMortar = 0;
         int numBricks = 0;
         int numHardClay = 0;
@@ -30,8 +31,8 @@ public class RecipesMortarAndPestle implements IRecipe {
 
         for (int slot = 0; slot < inv.getSizeInventory(); slot++){
             ItemStack itemStack = inv.getStackInSlot(slot);
-            if (itemStack != null){
-                if (itemStack.getItem() == ModItems.mortar_pestle && this.mortarPestle == null) {
+            if (!itemStack.isEmpty()){
+                if (itemStack.getItem() == ModItems.mortar_pestle && this.mortarPestle == ItemStack.EMPTY) {
                     numMortar++;
                     this.mortarPestle = itemStack;
                 }
@@ -76,13 +77,13 @@ public class RecipesMortarAndPestle implements IRecipe {
     }
 
     @Override
-    public ItemStack[] getRemainingItems(InventoryCrafting inv) {
-        ItemStack[] stacks = new ItemStack[inv.getSizeInventory()];
+    public NonNullList<ItemStack> getRemainingItems(InventoryCrafting inv) {
+        NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(inv.getSizeInventory(), ItemStack.EMPTY);
         int slots;
-        for (slots = 0; slots < stacks.length; slots++){
+        for (slots = 0; slots < stacks.size(); slots++){
             ItemStack stackInSlot = inv.getStackInSlot(slots);
-            if (stackInSlot != null && stackInSlot.getItem() == ModItems.mortar_pestle) stacks[slots] = this.mortarPestle.copy();
-            else stacks[slots] = net.minecraftforge.common.ForgeHooks.getContainerItem(stackInSlot);
+            if (!stackInSlot.isEmpty() && stackInSlot.getItem() == ModItems.mortar_pestle) stacks.set(slots, this.mortarPestle.copy());
+            else stacks.set(slots, net.minecraftforge.common.ForgeHooks.getContainerItem(stackInSlot));
         }
         return stacks;
     }

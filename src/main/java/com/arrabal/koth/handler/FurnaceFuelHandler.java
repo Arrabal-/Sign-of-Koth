@@ -39,7 +39,7 @@ public class FurnaceFuelHandler implements IFuelHandler {
     }
 
     public int getFuelValue(ItemStack stack){
-        if (stack == null) return 0;
+        if (stack.isEmpty()) return 0;
         Item item = stack.getItem();
         if (item == null) return 0;
         Pair<Item, Integer> itemMetaPair = Pair.of(item, stack.getItemDamage());

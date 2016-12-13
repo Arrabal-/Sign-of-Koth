@@ -9,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -34,7 +35,7 @@ public class ItemSoKBlock extends ItemBlock {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void getSubItems(Item itemIn, CreativeTabs tab, List subItems){
+    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems){
         ImmutableSet<IBlockState> presets = BlockStateHelper.getBlockstatePresets(this.block);
         if (presets.isEmpty()){
             subItems.add(new ItemStack(this.block, 1, 0));

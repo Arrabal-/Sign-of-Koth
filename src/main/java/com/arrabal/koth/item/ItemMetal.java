@@ -4,6 +4,7 @@ import com.arrabal.koth.reference.enums.Metals;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -27,7 +28,7 @@ public class ItemMetal extends ItemSoK {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems){
+    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems){
         for (Metals metal : Metals.values()){
             subItems.add(new ItemStack(itemIn, 1, metal.getMetaData()));
         }

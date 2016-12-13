@@ -9,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
@@ -52,8 +53,7 @@ public class BlockSoKDoubleWoodSlab extends BlockSoKWoodSlab {
 
     @Override
     @SideOnly(Side.CLIENT)
-    @SuppressWarnings("unchecked")
-    public void getSubBlocks(Item itemIn, CreativeTabs creativeTabs, List list){
+    public void getSubBlocks(Item itemIn, CreativeTabs creativeTabs, NonNullList<ItemStack> list){
         ImmutableSet<IBlockState> presets = BlockStateHelper.getBlockstatePresets(this);
         for (IBlockState state : presets){
             list.add(new ItemStack(itemIn, 1, this.getMetaFromState(state)));

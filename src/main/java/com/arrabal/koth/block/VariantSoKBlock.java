@@ -53,11 +53,6 @@ public abstract class VariantSoKBlock extends Block implements ISoKBlock{
         }
     }
 
-    @Override
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, World world, BlockPos pos){
-        return super.getCollisionBoundingBox(state, world, pos);
-    }
-
     public static EnumFacing getFacingFromEntitiy(World world, BlockPos clickedBlock, EntityLivingBase clicker){
         return clicker.getHorizontalFacing().getOpposite();
     }
@@ -69,7 +64,7 @@ public abstract class VariantSoKBlock extends Block implements ISoKBlock{
         IInventory inventory = (IInventory) tileEntity;
         for (int i = 0; i < inventory.getSizeInventory(); i++){
             ItemStack itemStack = inventory.getStackInSlot(i);
-            if (itemStack != null && itemStack.stackSize > 0) {
+            if (!itemStack.isEmpty() && itemStack.getCount() > 0) {
                 Random rand = new Random();
                 float dx = rand.nextFloat() * 0.8f + 0.1f;
                 float dy = rand.nextFloat() * 0.8f + 0.1f;
@@ -85,8 +80,8 @@ public abstract class VariantSoKBlock extends Block implements ISoKBlock{
                 entityItem.motionX = rand.nextGaussian() * motionFactor;
                 entityItem.motionY = rand.nextGaussian() * motionFactor + 0.2f;
                 entityItem.motionZ = rand.nextGaussian() * motionFactor;
-                world.spawnEntityInWorld(entityItem);
-                itemStack.stackSize = 0;
+                world.spawnEntity(entityItem);
+                itemStack.setCount(0);
             }
         }
     }

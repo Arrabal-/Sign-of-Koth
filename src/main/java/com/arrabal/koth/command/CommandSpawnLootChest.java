@@ -23,12 +23,12 @@ import java.util.Random;
 public class CommandSpawnLootChest extends CommandBase {
 
     @Override
-    public String getCommandName() {
+    public String getName() {
         return Names.Commands.COMMAND_GEN_LOOT_CHEST;
     }
 
     @Override
-    public String getCommandUsage(ICommandSender sender) {
+    public String getUsage(ICommandSender sender) {
         return Messages.Commands.GEN_LOOT_CHEST_USAGE;
     }
 

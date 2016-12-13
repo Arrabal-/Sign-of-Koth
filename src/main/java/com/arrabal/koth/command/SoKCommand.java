@@ -21,12 +21,12 @@ public class SoKCommand extends CommandBase {
     private static List<String> commands = new ArrayList<String>();
 
     @Override
-    public String getCommandName() {
+    public String getName() {
         return Names.Commands.BASE_COMMAND;
     }
 
     @Override
-    public String getCommandUsage(ICommandSender sender) {
+    public String getUsage(ICommandSender sender) {
         return Messages.Commands.BASE_COMMAND_USAGE;
     }
 
@@ -39,13 +39,13 @@ public class SoKCommand extends CommandBase {
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length >= 1){
             for (CommandBase command : modCommands){
-                if (command.getCommandName().equalsIgnoreCase(args[0]) && command.checkPermission(server, sender)){
+                if (command.getName().equalsIgnoreCase(args[0]) && command.checkPermission(server, sender)){
                     command.execute(server, sender, args);
                 }
             }
         }
         else{
-            throw new WrongUsageException(this.getCommandUsage(sender));
+            throw new WrongUsageException(this.getUsage(sender));
         }
     }
 
@@ -54,7 +54,7 @@ public class SoKCommand extends CommandBase {
         modCommands.add(new CommandSpawnLootChest());
 
         for (CommandBase commandBase : modCommands){
-            commands.add(commandBase.getCommandName());
+            commands.add(commandBase.getName());
         }
     }
 }

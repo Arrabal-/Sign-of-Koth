@@ -1,7 +1,0 @@
-{
-  "parent": "block/column_side",
-  "textures": {
-    "end": "sok:blocks/log_cedar_top",
-    "side": "sok:blocks/log_cedar"
-  }
-}

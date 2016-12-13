@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.resources.AbstractResourcePack;
 import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
@@ -74,8 +75,8 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerItemVariantModel(Item item, String name, int metaData) {
-        if (item != null){
-            ModelBakery.registerItemVariants(item, new ResourceLocation(Reference.MOD_PREFIX + name));
+        if (item != Items.AIR){
+            ModelLoader.registerItemVariants(item, new ResourceLocation(Reference.MOD_PREFIX + name));
             ModelLoader.setCustomModelResourceLocation(item, metaData, new ModelResourceLocation(Reference.MOD_ID + ":" + name, "inventory"));
         }
     }

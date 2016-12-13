@@ -8,6 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -43,7 +44,7 @@ public class ItemRegistryHelper {
 
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT){
             if (item.getHasSubtypes()){
-                List<ItemStack> subItems = new ArrayList<ItemStack>();
+                NonNullList<ItemStack> subItems = NonNullList.<ItemStack>create();
                 item.getSubItems(item, creativeTab, subItems);
                 for (ItemStack subItem : subItems){
                     String subItemName = item.getUnlocalizedName(subItem);

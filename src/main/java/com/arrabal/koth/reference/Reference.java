@@ -10,7 +10,7 @@ public class Reference {
     public static final String MOD_NAME = "Sign of Koth";
     public static final String FINGERPRINT = "@FINGERPRINT@";
     public static final String MOD_VERSION = "@MOD_VERSION@";
-    public static final String DEPENDENCIES = "required-after:Forge@[12.18.0.2007,)";
+    public static final String DEPENDENCIES = "required-after:Forge@[13.19.1.2188,)";
     public static final String SERVER_PROXY_CLASS = "com.arrabal.koth.proxy.ServerProxy";
     public static final String CLIENT_PROXY_CLASS = "com.arrabal.koth.proxy.ClientProxy";
     public static final String GUI_FACTORY_CLASS = "com.arrabal.koth.client.gui.GuiFactory";

@@ -72,7 +72,7 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
 
     private boolean canHeldItemHarvest(EntityPlayer harvester, IBlockState blockToHarvest){
         ItemStack itemStack = harvester.getHeldItem(EnumHand.MAIN_HAND);
-        return itemStack != null ? itemStack.canHarvestBlock(blockToHarvest) : false;
+        return !itemStack.isEmpty() ? itemStack.canHarvestBlock(blockToHarvest) : false;
     }
 
     private boolean canHarvestBlock(Block block, EntityPlayer player, IBlockAccess world, BlockPos pos){
@@ -86,13 +86,13 @@ public class BlockSoKLog extends BlockLog implements ISoKBlock {
         ItemStack stack = player.inventory.getCurrentItem();
         state = state.getBlock().getActualState(state, world, pos);
         String tool = block.getHarvestTool(state);
-        if (stack == null || tool == null)
+        if (stack.isEmpty() || tool == null)
         {
             return net.minecraftforge.event.ForgeEventFactory.doPlayerHarvestCheck(player, state, this.canHeldItemHarvest(player, state));
 
         }
 
-        int toolLevel = stack.getItem().getHarvestLevel(stack, tool);
+        int toolLevel = stack.getItem().getHarvestLevel(stack, tool, player, state);
         if (toolLevel < 0)
         {
             return net.minecraftforge.event.ForgeEventFactory.doPlayerHarvestCheck(player, state, this.canHeldItemHarvest(player, state));

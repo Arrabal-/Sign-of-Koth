@@ -19,8 +19,8 @@ public class WorldEventHandler {
     @SubscribeEvent
     public void onDecorateBiomeEvent(DecorateBiomeEvent.Decorate event){
         if (event.getType() == DecorateBiomeEvent.Decorate.EventType.TREE){
-            Biome eventBiome = event.getWorld().getBiomeGenForCoords(event.getPos());
-            if (BiomeDictionary.isBiomeOfType(eventBiome, BiomeDictionary.Type.PLAINS) && !BiomeDictionary.isBiomeOfType(eventBiome, BiomeDictionary.Type.HOT)){
+            Biome eventBiome = event.getWorld().getBiome(event.getPos());
+            if (BiomeDictionary.hasType(eventBiome, BiomeDictionary.Type.PLAINS) && !BiomeDictionary.hasType(eventBiome, BiomeDictionary.Type.HOT)){
                 // insert generation of cedar trees into plains type biomes
                 WorldGenerationHelper.insertSparseTreeGenerator(event.getWorld(), event.getRand(), event.getPos(), this.cedarTreeGenerator);
                 event.setResult(Event.Result.ALLOW);

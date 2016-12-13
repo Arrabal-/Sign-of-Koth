@@ -12,8 +12,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
@@ -21,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureVillagePieces;
+import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 import java.util.List;
@@ -56,7 +55,13 @@ public class VillageAbandonedHouse extends StructureVillagePieces.Village implem
     }
 
     @Override
-    protected void func_189915_a(World worldIn, StructureBoundingBox boundingBoxIn, Random rand, int x, int y, int z, EnumFacing facing, BlockDoor doorBlock)
+    protected void createVillageDoor(World worldIn, StructureBoundingBox boundingBoxIn, Random rand, int x, int y, int z, EnumFacing facing)
+    {
+        this.generateDoor(worldIn, boundingBoxIn, rand, x, y, z, EnumFacing.NORTH, null);
+    }
+
+    @Override
+    protected void generateDoor(World worldIn, StructureBoundingBox boundingBoxIn, Random rand, int x, int y, int z, EnumFacing facing, BlockDoor doorBlock)
     {
         this.setBlockState(worldIn, ModBlocks.secured_door.getDefaultState().withProperty(BlockSoKDoor.FACING, facing), x, y, z, boundingBoxIn);
         this.setBlockState(worldIn, ModBlocks.secured_door.getDefaultState().withProperty(BlockSoKDoor.FACING, facing).withProperty(BlockSoKDoor.HALF, BlockSoKDoor.EnumDoorHalf.UPPER), x, y + 1, z, boundingBoxIn);
@@ -180,7 +185,7 @@ public class VillageAbandonedHouse extends StructureVillagePieces.Village implem
         this.setBlockState(worldIn, Blocks.AIR.getDefaultState(), 2, 1, 0, structureBoundingBoxIn);
         this.setBlockState(worldIn, Blocks.AIR.getDefaultState(), 2, 2, 0, structureBoundingBoxIn);
         this.setBlockState(worldIn, Blocks.TORCH.getDefaultState().withProperty(BlockTorch.FACING, EnumFacing.NORTH), 2, 3, 1, structureBoundingBoxIn);
-        this.func_189915_a(worldIn, structureBoundingBoxIn, randomIn, 2, 1, 0, EnumFacing.NORTH, null);
+        this.createVillageDoor(worldIn, structureBoundingBoxIn, randomIn, 2, 1, 0, EnumFacing.NORTH);
         this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 0, -1, 3, 2, -1, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
 
         if (this.getBlockStateFromPos(worldIn, 2, 0, -1, structureBoundingBoxIn).getMaterial() == Material.AIR && this.getBlockStateFromPos(worldIn, 2, -1, -1, structureBoundingBoxIn).getMaterial() != Material.AIR)
@@ -254,9 +259,9 @@ public class VillageAbandonedHouse extends StructureVillagePieces.Village implem
     /**
      * (abstract) Helper method to read subclass data from NBT
      */
-    protected void readStructureFromNBT(NBTTagCompound tagCompound)
+    protected void readStructureFromNBT(NBTTagCompound tagCompound, TemplateManager manager)
     {
-        super.readStructureFromNBT(tagCompound);
+        super.readStructureFromNBT(tagCompound, manager);
         this.hasMadeChest = tagCompound.getBoolean("Chest");
     }
 }

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 /**
  * Created by Arrabal on 2/22/2016.
  */
-@GameRegistry.ObjectHolder(Reference.MOD_ID)
+//@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems {
 
     public static Item boarded_door;

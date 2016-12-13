@@ -14,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.RecipeSorter;
@@ -162,7 +163,7 @@ public class ModCrafting {
         OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_hemlock));
         OreDictionary.registerOre("stairWood", new ItemStack(ModBlocks.stairs_maple));
         // support for cedar siding
-        List<ItemStack> stackList = CraftingHelper.getItemStackForAllBlockstates(ModBlocks.cedar_siding, 1);
+        NonNullList<ItemStack> stackList = CraftingHelper.getItemStackForAllBlockstates(ModBlocks.cedar_siding, 1);
         for (int i = 0; i < stackList.size(); i++){
             OreDictionary.registerOre("plankWood", stackList.get(i));
         }

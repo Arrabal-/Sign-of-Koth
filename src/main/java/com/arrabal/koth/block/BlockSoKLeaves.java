@@ -110,7 +110,7 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
     public IItemColor getItemColor() { return BlockColors.BLOCK_ITEM_COLOR; }
 
     @Override
-    public IBlockState onBlockPlaced(World worldIn, BlockPos blockPos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
+    public IBlockState getStateForPlacement(World worldIn, BlockPos blockPos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
         return this.getStateFromMeta(meta).withProperty(CHECK_DECAY, Boolean.valueOf(false)).withProperty(DECAYABLE, Boolean.valueOf(false));
     }
 
@@ -130,8 +130,9 @@ public class BlockSoKLeaves extends BlockLeaves implements ISoKBlock {
         return saplingStack.getItem();
     }
 
+    //TODO remove
     @Override
-    protected ItemStack createStackedBlock(IBlockState state){
+    protected ItemStack getSilkTouchDrop(IBlockState state){
        return new ItemStack(Item.getItemFromBlock(this), 1, this.getMetaFromState(state));
     }
 

@@ -20,12 +20,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 /**
  * Created by Arrabal on 2/22/2016.
  */
-@GameRegistry.ObjectHolder(Reference.MOD_ID)
+//@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks {
 
     // Simple Blocks
-    public static final SimpleSoKBlock textureTestBlock = new BlockSokTextureTest(Material.WOOD); //temporary block for testing out new textures
-    public static final SimpleSoKBlock textureTest2Block = new BlockSoKTextureTest2(Material.WOOD); //temporary block for testing out new textures
+    //public static final SimpleSoKBlock textureTestBlock = new BlockSokTextureTest(Material.WOOD); //temporary block for testing out new textures
+    //public static final SimpleSoKBlock textureTest2Block = new BlockSoKTextureTest2(Material.WOOD); //temporary block for testing out new textures
 
     // Variant Blocks
     public static final Block planks_0 = new BlockSoKPlanks();
@@ -63,7 +63,7 @@ public class ModBlocks {
     public static final Block secured_door = new BlockSoKDoor(true);
 
     // Models
-    public static final Block empty_brazier = new BlockSoKBrazierEmpty();
+    //public static final Block empty_brazier = new BlockSoKBrazierEmpty();
 
     public static void init(){
         // Simple Blocks

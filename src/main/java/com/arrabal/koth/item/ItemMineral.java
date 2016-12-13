@@ -4,6 +4,7 @@ import com.arrabal.koth.reference.enums.Minerals;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -27,7 +28,7 @@ public class ItemMineral extends ItemSoK {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems){
+    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems){
         for (Minerals mineral : Minerals.values()){
             subItems.add(new ItemStack(itemIn, 1, mineral.getMetaData()));
         }
