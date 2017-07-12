@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "custom": { "flip-v": true },
+    "model": "sok:stoneBrazier_003.obj"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}
